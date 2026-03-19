@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import { cv } from "@/data/cv";
 
 const mantras = ["ॐ", "नमः", "सत्यम्", "शिवम्", "सुन्दरम्"];
 
@@ -113,7 +114,7 @@ export default function HeroSection() {
             transition={{ duration: 2.5, delay: 1.2, ease: "easeOut" }}
             className="font-divine text-5xl md:text-7xl lg:text-8xl section-heading relative"
           >
-            Your Name
+            {cv.personal.name}
           </motion.h1>
         </div>
 
@@ -126,7 +127,7 @@ export default function HeroSection() {
         >
           <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold/60" />
           <p className="font-epic text-gold/80 text-base md:text-xl tracking-[0.2em]">
-            Full Stack Developer  ·  Digital Warrior
+            {cv.personal.title}
           </p>
           <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold/60" />
         </motion.div>
@@ -138,8 +139,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 2.3 }}
           className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10"
         >
-          Like Arjuna on the battlefield of Kurukshetra, I craft digital experiences
-          with precision, wisdom, and unrelenting purpose.
+          {cv.personal.summary}
         </motion.p>
 
         {/* CTA Buttons */}

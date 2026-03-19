@@ -7,6 +7,7 @@ import AboutSection from "@/components/portfolio/AboutSection";
 import SkillsSection from "@/components/portfolio/SkillsSection";
 import ProjectsSection from "@/components/portfolio/ProjectsSection";
 import ExperienceSection from "@/components/portfolio/ExperienceSection";
+import EducationSection from "@/components/portfolio/EducationSection";
 import ContactSection from "@/components/portfolio/ContactSection";
 import FooterSection from "@/components/portfolio/FooterSection";
 import { motion, AnimatePresence } from "framer-motion";
@@ -99,6 +100,7 @@ export default function Index() {
               <SkillsSection />
               <ProjectsSection />
               <ExperienceSection />
+              <EducationSection />
               <ContactSection />
               <FooterSection />
             </main>

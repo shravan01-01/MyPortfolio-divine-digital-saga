@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Send, Mail, MapPin, Phone } from "lucide-react";
+import { cv } from "@/data/cv";
 
 export default function ContactSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -59,9 +60,9 @@ export default function ContactSection() {
             </div>
 
             {[
-              { Icon: Mail, label: "Email", value: "arjuna@digital.com", sanskrit: "पत्र" },
-              { Icon: MapPin, label: "Location", value: "Bharat, India", sanskrit: "स्थान" },
-              { Icon: Phone, label: "Phone", value: "+91 98765 43210", sanskrit: "वार्ता" },
+              { Icon: Mail, label: "Email", value: cv.personal.email, sanskrit: "पत्र" },
+              { Icon: MapPin, label: "Location", value: cv.personal.location, sanskrit: "स्थान" },
+              { Icon: Phone, label: "Phone", value: cv.personal.phone, sanskrit: "वार्ता" },
             ].map(({ Icon, label, value, sanskrit }) => (
               <div key={label} className="flex items-center gap-4 group">
                 <div className="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center
@@ -80,15 +81,20 @@ export default function ContactSection() {
             <div className="pt-4">
               <p className="font-epic text-xs text-muted-foreground tracking-widest uppercase mb-4">Social Presence</p>
               <div className="flex gap-3">
-                {["GitHub", "LinkedIn", "Twitter", "Dribbble"].map((s) => (
+                {[
+                  { label: "LinkedIn", url: cv.personal.linkedin },
+                  { label: "LeetCode", url: cv.personal.leetcode },
+                ].map((item) => (
                   <a
-                    key={s}
-                    href="#"
+                    key={item.label}
+                    href={item.url}
+                    target="_blank"
+                    rel="noreferrer"
                     className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center 
                                text-xs font-epic text-gold/60 hover:text-gold hover:border-gold hover:shadow-glow 
                                transition-all duration-300"
                   >
-                    {s[0]}
+                    {item.label.slice(0, 2).toUpperCase()}
                   </a>
                 ))}
               </div>

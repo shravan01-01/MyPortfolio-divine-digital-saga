@@ -1,48 +1,17 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { cv } from "@/data/cv";
 
-const experiences = [
-  {
-    role: "Senior Full-Stack Developer",
-    company: "TechMahabharata Corp",
-    period: "2023 — Present",
-    sanskrit: "महायोद्धा",
-    desc: "Led a team of 8 developers. Architected microservices handling 500K+ daily requests. Mentored juniors like Dronacharya guided the Pandavas.",
-    achievements: ["Reduced latency by 60%", "Led 3 major product launches", "Built CI/CD pipelines"],
-    dharma: "Leadership & Architecture",
-    icon: "👑",
-  },
-  {
-    role: "Full-Stack Developer",
-    company: "Dharma Digital",
-    period: "2021 — 2023",
-    sanskrit: "योद्धा",
-    desc: "Built scalable web applications from scratch. Integrated 20+ third-party APIs. Practiced the art of clean code with monastic discipline.",
-    achievements: ["Shipped 15+ features", "99.9% uptime maintained", "Reduced tech debt by 40%"],
-    dharma: "Building & Scaling",
-    icon: "⚔️",
-  },
-  {
-    role: "Frontend Developer",
-    company: "Vedic Ventures",
-    period: "2019 — 2021",
-    sanskrit: "शिष्य",
-    desc: "Crafted beautiful, responsive UIs. Learned the sacred art of user experience. Built components with the precision of a temple sculptor.",
-    achievements: ["Improved UX scores by 35%", "Migrated to React 18", "Accessibility champion"],
-    dharma: "UI/UX Excellence",
-    icon: "🎨",
-  },
-  {
-    role: "Intern Developer",
-    company: "Brahma Bytes",
-    period: "2018 — 2019",
-    sanskrit: "गुरुकुल",
-    desc: "The beginning of the sacred journey. Like a student in the Gurukul, absorbed knowledge with humility and devotion.",
-    achievements: ["Built first production app", "Learned the fundamentals", "Set the dharmic foundation"],
-    dharma: "Learning & Growing",
-    icon: "🌱",
-  },
-];
+const experiences = cv.experience.map((exp) => ({
+  role: exp.role,
+  company: exp.company,
+  period: exp.period,
+  sanskrit: "अनुभव",
+  desc: exp.details,
+  achievements: exp.achievements,
+  dharma: "Data Analytics",
+  icon: "📊",
+}));
 
 export default function ExperienceSection() {
   const ref = useRef<HTMLDivElement>(null);

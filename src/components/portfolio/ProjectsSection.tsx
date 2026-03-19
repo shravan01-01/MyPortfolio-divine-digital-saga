@@ -1,81 +1,20 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import { cv } from "@/data/cv";
 
-const projects = [
-  {
-    id: 1,
-    title: "Dharma Platform",
-    subtitle: "एक महाग्रंथ",
-    chapter: "Chapter I",
-    desc: "A full-stack SaaS platform serving 10,000+ users. Built with React, Node.js, and PostgreSQL. Real-time dashboards, AI integrations, and enterprise-grade security.",
-    tags: ["React", "Node.js", "PostgreSQL", "AWS"],
-    icon: "🔱",
-    color: "hsl(43 96% 56%)",
-    link: "#",
-    github: "#",
-  },
-  {
-    id: 2,
-    title: "Cosmic Commerce",
-    subtitle: "व्यापार साम्राज्य",
-    chapter: "Chapter II",
-    desc: "An e-commerce empire handling 1M+ transactions. Microservices architecture, real-time inventory, and ML-powered recommendations.",
-    tags: ["TypeScript", "GraphQL", "Redis", "Docker"],
-    icon: "🏺",
-    color: "hsl(28 100% 55%)",
-    link: "#",
-    github: "#",
-  },
-  {
-    id: 3,
-    title: "Veda AI",
-    subtitle: "ज्ञान का भंडार",
-    chapter: "Chapter III",
-    desc: "An AI-powered knowledge management system. Natural language processing meets ancient wisdom. Processes and connects knowledge like the Vedic tradition.",
-    tags: ["Python", "TensorFlow", "FastAPI", "MongoDB"],
-    icon: "📜",
-    color: "hsl(225 68% 55%)",
-    link: "#",
-    github: "#",
-  },
-  {
-    id: 4,
-    title: "Arjuna Dashboard",
-    subtitle: "दृष्टि और नियंत्रण",
-    chapter: "Chapter IV",
-    desc: "Real-time analytics dashboard with the precision of Arjuna's aim. 100ms updates, complex visualizations, and predictive insights.",
-    tags: ["React", "D3.js", "WebSocket", "Go"],
-    icon: "🏹",
-    color: "hsl(120 60% 40%)",
-    link: "#",
-    github: "#",
-  },
-  {
-    id: 5,
-    title: "Shakti Auth",
-    subtitle: "सुरक्षा कवच",
-    chapter: "Chapter V",
-    desc: "Enterprise authentication system. Zero-trust security architecture, biometric auth, and compliance across 50+ countries.",
-    tags: ["OAuth2", "JWT", "Kubernetes", "Rust"],
-    icon: "⚔️",
-    color: "hsl(0 68% 50%)",
-    link: "#",
-    github: "#",
-  },
-  {
-    id: 6,
-    title: "Indra Cloud",
-    subtitle: "आकाश साम्राज्य",
-    chapter: "Chapter VI",
-    desc: "Cloud infrastructure automation tool. Deploys entire environments in minutes, inspired by Indra's mastery over the heavens.",
-    tags: ["Terraform", "AWS", "Python", "CI/CD"],
-    icon: "☁️",
-    color: "hsl(200 90% 50%)",
-    link: "#",
-    github: "#",
-  },
-];
+const projects = cv.projects.map((project, index) => ({
+  id: index + 1,
+  title: project.title,
+  subtitle: project.title,
+  chapter: `Project ${index + 1}`,
+  desc: project.description,
+  tags: project.tech,
+  icon: "🌟",
+  color: "hsl(43 96% 56%)",
+  link: "#",
+  github: "#",
+}));
 
 export default function ProjectsSection() {
   const ref = useRef<HTMLDivElement>(null);

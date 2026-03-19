@@ -1,20 +1,15 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { cv } from "@/data/cv";
 
-const weapons = [
-  { name: "React", level: 95, weapon: "ब्रह्मास्त्र", desc: "The ultimate weapon", icon: "⚛️", color: "hsl(43 96% 56%)" },
-  { name: "TypeScript", level: 90, weapon: "सुदर्शन चक्र", desc: "Precision & power", icon: "🔵", color: "hsl(225 68% 55%)" },
-  { name: "Node.js", level: 88, weapon: "गदा", desc: "The mighty mace", icon: "💚", color: "hsl(120 60% 40%)" },
-  { name: "Python", level: 85, weapon: "नागपाश", desc: "Binding & flexible", icon: "🐍", color: "hsl(43 96% 50%)" },
-  { name: "PostgreSQL", level: 82, weapon: "वज्र", desc: "The thunderbolt", icon: "🗄️", color: "hsl(200 80% 45%)" },
-  { name: "Docker", level: 80, weapon: "कवच", desc: "Divine armor", icon: "🐳", color: "hsl(200 90% 50%)" },
-  { name: "AWS", level: 75, weapon: "इन्द्रास्त्र", desc: "Lord of clouds", icon: "☁️", color: "hsl(28 100% 55%)" },
-  { name: "GraphQL", level: 78, weapon: "तीर", desc: "The precise arrow", icon: "🏹", color: "hsl(315 80% 55%)" },
-  { name: "Tailwind CSS", level: 92, weapon: "माया", desc: "Illusion & beauty", icon: "🎨", color: "hsl(190 90% 50%)" },
-  { name: "Git", level: 93, weapon: "कालचक्र", desc: "Wheel of time", icon: "⏳", color: "hsl(14 85% 50%)" },
-  { name: "Framer Motion", level: 85, weapon: "नटराज", desc: "Dance of creation", icon: "💃", color: "hsl(275 80% 55%)" },
-  { name: "MongoDB", level: 80, weapon: "पाशुपतास्त्र", desc: "Shiva's weapon", icon: "🍃", color: "hsl(130 50% 45%)" },
-];
+const weapons = cv.skills.map((skill, i) => ({
+  name: skill,
+  level: 80 + (i % 5) * 4,
+  weapon: skill,
+  desc: skill,
+  icon: "⚡",
+  color: ["hsl(43 96% 56%)", "hsl(225 68% 55%)", "hsl(120 60% 40%)", "hsl(28 100% 55%)", "hsl(190 90% 50%)"][i % 5],
+}));
 
 export default function SkillsSection() {
   const ref = useRef<HTMLDivElement>(null);

@@ -7,6 +7,7 @@ const navItems = [
   { label: "Skills", href: "#skills", sanskrit: "शस्त्र" },
   { label: "Projects", href: "#projects", sanskrit: "कृति" },
   { label: "Experience", href: "#experience", sanskrit: "अनुभव" },
+  { label: "Education", href: "#education", sanskrit: "शिक्षा" },
   { label: "Contact", href: "#contact", sanskrit: "संपर्क" },
 ];
 

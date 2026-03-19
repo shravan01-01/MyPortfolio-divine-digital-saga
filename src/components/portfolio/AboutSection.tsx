@@ -1,35 +1,12 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { cv } from "@/data/cv";
 
 const journey = [
-  {
-    year: "2018",
-    title: "The Awakening",
-    subtitle: "जागरण",
-    desc: "Began the sacred journey into the world of code. Like a young warrior picking up his first weapon.",
-    icon: "🔱",
-  },
-  {
-    year: "2020",
-    title: "The Training",
-    subtitle: "साधना",
-    desc: "Years of rigorous practice. Mastered the fundamentals, akin to Dronacharya's rigorous training.",
-    icon: "⚔️",
-  },
-  {
-    year: "2022",
-    title: "The Battle",
-    subtitle: "युद्ध",
-    desc: "Entered the professional arena. Solved complex problems with the clarity of Arjuna's vision.",
-    icon: "🏹",
-  },
-  {
-    year: "2024",
-    title: "The Enlightenment",
-    subtitle: "ज्ञान",
-    desc: "Achieved mastery in full-stack development. Built systems that serve thousands of users.",
-    icon: "🌟",
-  },
+  { year: "2021", title: "SSC Completion", subtitle: "यश", desc: "Completed secondary school with strong foundation in STEM.", icon: "🎓" },
+  { year: "2023", title: "HSC Completion", subtitle: "उन्नति", desc: "Completed higher secondary with PCM + IT and started AI/DS journey.", icon: "🧠" },
+  { year: "2023", title: "Engineering: AI & DS", subtitle: "प्रगति", desc: "Started Bachelor of Engineering (AI & DS) at Ajeenkya DY Patil School of Engineering.", icon: "🏛️" },
+  { year: "2024", title: "Data Analyst Intern", subtitle: "अनुभव", desc: "Joined iGurus consultancy to build analytics dashboards and data pipelines.", icon: "📊" },
 ];
 
 export default function AboutSection() {
@@ -87,22 +64,19 @@ export default function AboutSection() {
               </div>
 
               <p className="font-sanskrit text-saffron/80 text-lg mb-4">यत्र योगेश्वरः कृष्णः</p>
-              <h3 className="font-epic text-gold text-2xl mb-6">The Warrior-Scholar</h3>
+              <h3 className="font-epic text-gold text-2xl mb-6">The Student-Developer</h3>
               <p className="font-body text-muted-foreground text-lg leading-relaxed mb-4">
-                I am a developer who believes that great code, like great dharma, is both
-                powerful and purposeful. My journey has been one of continuous learning,
-                building, and evolving — much like the heroes of the Mahabharata.
+                {cv.personal.summary}
               </p>
               <p className="font-body text-muted-foreground text-lg leading-relaxed mb-6">
-                Armed with modern technologies and an ancient philosophy of craftsmanship,
-                I create digital experiences that are both beautiful and resilient.
+                I combine AI, data analysis, and web development with a strong focus on problem-solving and real-world impact.
               </p>
 
               <div className="grid grid-cols-3 gap-4 mt-8">
                 {[
-                  { num: "50+", label: "Projects", sanskrit: "परियोजनाएं" },
-                  { num: "5+", label: "Years", sanskrit: "वर्ष" },
-                  { num: "∞", label: "Passion", sanskrit: "जुनून" },
+                  { num: "4", label: "Projects", sanskrit: "परियोजनाएं" },
+                  { num: "2", label: "Years", sanskrit: "वर्ष" },
+                  { num: "100%", label: "Passion", sanskrit: "जुनून" },
                 ].map((stat) => (
                   <div key={stat.label} className="text-center border-divine rounded p-3">
                     <div className="font-divine text-gold text-2xl">{stat.num}</div>
