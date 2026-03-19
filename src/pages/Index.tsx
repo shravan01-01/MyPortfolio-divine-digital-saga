@@ -95,7 +95,7 @@ export default function Index() {
                 ))}
               </div>
 
-              <HeroSection />
+              <HeroSection isKrishnaMode={isDayMode} />
               <AboutSection />
               <SkillsSection />
               <ProjectsSection />
