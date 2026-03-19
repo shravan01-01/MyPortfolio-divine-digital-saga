@@ -8,9 +8,7 @@ export default {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+      screens: { "2xl": "1400px" },
     },
     extend: {
       colors: {
@@ -57,33 +55,64 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Mythological palette
+        gold: "hsl(var(--gold))",
+        saffron: "hsl(var(--saffron))",
+        maroon: "hsl(var(--maroon))",
+        "royal-blue": "hsl(var(--royal-blue))",
+        "divine-white": "hsl(var(--divine-white))",
+        ember: "hsl(var(--ember))",
+      },
+      fontFamily: {
+        divine: ["'Cinzel Decorative'", "serif"],
+        epic: ["'Cinzel'", "serif"],
+        body: ["'Crimson Text'", "serif"],
+        sanskrit: ["'Noto Serif Devanagari'", "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        "gradient-divine": "var(--gradient-divine)",
+        "gradient-cosmic": "var(--gradient-cosmic)",
+        "gradient-gold": "var(--gradient-gold)",
+        "gradient-fire": "var(--gradient-fire)",
+      },
+      boxShadow: {
+        divine: "var(--shadow-divine)",
+        fire: "var(--shadow-fire)",
+        glow: "var(--shadow-glow)",
+      },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "spin-slow": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "0% center" },
+          "100%": { backgroundPosition: "200% center" },
+        },
+        "float-up": {
+          "0%, 100%": { transform: "translateY(0px)", opacity: "0.6" },
+          "50%": { transform: "translateY(-20px)", opacity: "1" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "spin-slow": "spin-slow 12s linear infinite",
+        shimmer: "shimmer 4s linear infinite",
+        "float-up": "float-up 4s ease-in-out infinite",
       },
     },
   },

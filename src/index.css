@@ -1,96 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ════════════════════════════════════════════════
+   DIVINE DESIGN SYSTEM — Mahabharata & Ramayana
+   All colors in HSL.
+════════════════════════════════════════════════ */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Light mode: Ramayana — golden sunrise, divine warmth */
+    --background: 35 60% 6%;
+    --foreground: 43 96% 90%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 30 40% 10%;
+    --card-foreground: 43 96% 88%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 30 40% 10%;
+    --popover-foreground: 43 96% 88%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 43 96% 56%;
+    --primary-foreground: 0 0% 5%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 28 100% 42%;
+    --secondary-foreground: 43 96% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 30 25% 15%;
+    --muted-foreground: 43 50% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 14 85% 35%;
+    --accent-foreground: 43 96% 90%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 68% 35%;
+    --destructive-foreground: 43 96% 90%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 43 50% 22%;
+    --input: 43 50% 18%;
+    --ring: 43 96% 56%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Custom divine tokens */
+    --gold: 43 96% 56%;
+    --saffron: 28 100% 55%;
+    --maroon: 0 68% 25%;
+    --royal-blue: 225 68% 35%;
+    --divine-white: 45 100% 97%;
+    --deep-black: 0 0% 3%;
+    --ember: 14 85% 50%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --gradient-divine: linear-gradient(135deg, hsl(43 96% 56% / 0.9), hsl(28 100% 55% / 0.7), hsl(0 68% 35% / 0.8));
+    --gradient-cosmic: linear-gradient(180deg, hsl(240 50% 5%), hsl(225 68% 15%), hsl(0 50% 10%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 96% 35%), hsl(43 96% 56%), hsl(43 96% 72%), hsl(43 96% 56%), hsl(43 96% 35%));
+    --gradient-card: linear-gradient(135deg, hsl(30 40% 10% / 0.9), hsl(0 68% 15% / 0.6));
+    --gradient-fire: linear-gradient(180deg, hsl(43 96% 56%), hsl(28 100% 50%), hsl(0 68% 35%));
 
-    --sidebar-primary: 240 5.9% 10%;
+    --shadow-divine: 0 0 40px hsl(43 96% 56% / 0.4), 0 0 80px hsl(43 96% 56% / 0.15);
+    --shadow-fire: 0 0 20px hsl(28 100% 55% / 0.5), 0 0 60px hsl(0 68% 35% / 0.3);
+    --shadow-glow: 0 0 30px hsl(43 96% 56% / 0.6);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 30 40% 8%;
+    --sidebar-foreground: 43 96% 88%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 30 25% 15%;
+    --sidebar-accent-foreground: 43 96% 88%;
+    --sidebar-border: 43 50% 22%;
+    --sidebar-ring: 43 96% 56%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  .light-divine {
+    /* Day: Ramayana — saffron dawn */
+    --background: 35 80% 94%;
+    --foreground: 30 60% 10%;
+    --card: 40 60% 96%;
+    --card-foreground: 30 60% 12%;
+    --primary: 28 100% 45%;
+    --primary-foreground: 45 100% 97%;
+    --secondary: 43 96% 55%;
+    --secondary-foreground: 0 0% 5%;
+    --muted: 40 40% 88%;
+    --muted-foreground: 30 30% 35%;
+    --accent: 0 68% 35%;
+    --accent-foreground: 45 100% 97%;
+    --border: 35 40% 80%;
+    --input: 35 40% 85%;
+    --ring: 28 100% 45%;
+    --gradient-divine: linear-gradient(135deg, hsl(43 96% 70%), hsl(28 100% 60%), hsl(0 68% 50%));
+    --gradient-cosmic: linear-gradient(180deg, hsl(35 80% 94%), hsl(40 60% 85%), hsl(35 50% 78%));
+    --shadow-divine: 0 0 40px hsl(28 100% 55% / 0.3), 0 0 80px hsl(43 96% 56% / 0.1);
   }
 }
 
@@ -99,7 +99,238 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'Crimson Text', serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+}
+
+@layer components {
+  .font-divine {
+    font-family: 'Cinzel Decorative', serif;
+  }
+
+  .font-epic {
+    font-family: 'Cinzel', serif;
+  }
+
+  .font-body {
+    font-family: 'Crimson Text', serif;
+  }
+
+  .font-sanskrit {
+    font-family: 'Noto Serif Devanagari', serif;
+  }
+
+  /* Gold text shimmer */
+  .text-gold-shimmer {
+    background: var(--gradient-gold);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gold-shimmer 4s linear infinite;
+  }
+
+  /* Divine glow border */
+  .border-divine {
+    border: 1px solid hsl(var(--gold) / 0.4);
+    box-shadow: 0 0 15px hsl(var(--gold) / 0.2), inset 0 0 15px hsl(var(--gold) / 0.05);
+  }
+
+  /* Fire border on hover */
+  .hover-fire {
+    @apply transition-all duration-300;
+  }
+  .hover-fire:hover {
+    border-color: hsl(var(--saffron) / 0.8) !important;
+    box-shadow: 0 0 20px hsl(var(--saffron) / 0.5), 0 0 40px hsl(var(--maroon) / 0.3);
+  }
+
+  /* Scroll card */
+  .scroll-card {
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--gold) / 0.3);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gradient-fire);
+  }
+
+  .scroll-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gradient-fire);
+  }
+
+  /* Section divider - ornamental */
+  .divider-ornate {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .divider-ornate::before,
+  .divider-ornate::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.6), transparent);
+  }
+
+  /* Custom cursor */
+  .custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: screen;
+  }
+
+  /* Particle */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    animation: float-particle 6s ease-in-out infinite;
+  }
+
+  /* Nav link style */
+  .nav-divine {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: hsl(var(--gold) / 0.7);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .nav-divine:hover {
+    color: hsl(var(--gold));
+    text-shadow: 0 0 15px hsl(var(--gold) / 0.6);
+  }
+
+  .nav-divine::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 1px;
+    background: hsl(var(--gold));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-divine:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Section heading */
+  .section-heading {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    background: var(--gradient-gold);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gold-shimmer 5s linear infinite;
+  }
+
+  /* Weapon badge */
+  .weapon-badge {
+    background: linear-gradient(135deg, hsl(var(--card)), hsl(var(--maroon) / 0.3));
+    border: 1px solid hsl(var(--gold) / 0.3);
+    transition: all 0.3s ease;
+  }
+  .weapon-badge:hover {
+    border-color: hsl(var(--gold) / 0.8);
+    box-shadow: var(--shadow-divine);
+    transform: translateY(-3px) scale(1.03);
+  }
+
+  /* Chakra spin */
+  .chakra-spin {
+    animation: chakra-rotate 8s linear infinite;
+  }
+
+  /* Glass morphism for cards */
+  .glass-card {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--gold) / 0.2);
+  }
+}
+
+@layer utilities {
+  @keyframes gold-shimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+
+  @keyframes float-particle {
+    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+    50% { transform: translateY(-30px) rotate(180deg); opacity: 1; }
+  }
+
+  @keyframes chakra-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes divine-pulse {
+    0%, 100% { box-shadow: 0 0 10px hsl(var(--gold) / 0.3); }
+    50% { box-shadow: 0 0 30px hsl(var(--gold) / 0.7), 0 0 60px hsl(var(--saffron) / 0.3); }
+  }
+
+  @keyframes text-glow {
+    0%, 100% { text-shadow: 0 0 10px hsl(var(--gold) / 0.5); }
+    50% { text-shadow: 0 0 30px hsl(var(--gold) / 0.9), 0 0 60px hsl(var(--saffron) / 0.5); }
+  }
+
+  @keyframes mantra-reveal {
+    0% { opacity: 0; letter-spacing: 0.5em; }
+    100% { opacity: 1; letter-spacing: 0.08em; }
+  }
+
+  @keyframes rise-in {
+    from { transform: translateY(60px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes flame-flicker {
+    0%, 100% { transform: scaleY(1) rotate(-1deg); }
+    50% { transform: scaleY(1.05) rotate(1deg); }
+  }
+
+  @keyframes cursor-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .animate-divine-pulse { animation: divine-pulse 3s ease-in-out infinite; }
+  .animate-text-glow { animation: text-glow 3s ease-in-out infinite; }
+  .animate-mantra { animation: mantra-reveal 1.5s ease-out forwards; }
+  .animate-rise-in { animation: rise-in 1s ease-out forwards; }
+  .animate-flame { animation: flame-flicker 2s ease-in-out infinite; }
+  .animate-cursor-spin { animation: cursor-spin 3s linear infinite; }
+
+  /* Texture overlay */
+  .texture-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a017' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 }
