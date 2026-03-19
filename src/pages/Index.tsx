@@ -27,7 +27,7 @@ export default function Index() {
       <CustomCursor />
 
       {/* Ambient floating particles */}
-      <FloatingParticles count={50} />
+      <FloatingParticles count={50} isKrishnaMode={isDayMode} />
 
       {/* Loading screen */}
       <AnimatePresence>
