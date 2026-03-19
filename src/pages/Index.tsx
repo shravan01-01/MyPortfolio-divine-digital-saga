@@ -24,7 +24,7 @@ export default function Index() {
   return (
     <div className={isDayMode ? "light-divine" : ""}>
       {/* Custom cursor */}
-      <CustomCursor />
+      <CustomCursor isKrishnaMode={isDayMode} />
 
       {/* Ambient floating particles */}
       <FloatingParticles count={50} isKrishnaMode={isDayMode} />
