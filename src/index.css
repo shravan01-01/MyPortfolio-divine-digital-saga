@@ -72,25 +72,63 @@
   }
 
   .light-divine {
-    /* Day: Ramayana — saffron dawn */
-    --background: 35 80% 94%;
-    --foreground: 30 60% 10%;
-    --card: 40 60% 96%;
-    --card-foreground: 30 60% 12%;
-    --primary: 28 100% 45%;
+    /* Day: Krishna — peacock blue, divine yellow, forest green */
+    --background: 210 80% 96%;
+    --foreground: 220 70% 12%;
+
+    --card: 200 60% 93%;
+    --card-foreground: 220 60% 14%;
+
+    --popover: 200 60% 93%;
+    --popover-foreground: 220 60% 14%;
+
+    --primary: 220 85% 42%;        /* Krishna blue */
     --primary-foreground: 45 100% 97%;
-    --secondary: 43 96% 55%;
-    --secondary-foreground: 0 0% 5%;
-    --muted: 40 40% 88%;
-    --muted-foreground: 30 30% 35%;
-    --accent: 0 68% 35%;
+
+    --secondary: 43 96% 50%;       /* divine yellow / pitambar */
+    --secondary-foreground: 220 70% 10%;
+
+    --muted: 200 40% 87%;
+    --muted-foreground: 220 30% 38%;
+
+    --accent: 140 60% 35%;         /* peacock green */
     --accent-foreground: 45 100% 97%;
-    --border: 35 40% 80%;
-    --input: 35 40% 85%;
-    --ring: 28 100% 45%;
-    --gradient-divine: linear-gradient(135deg, hsl(43 96% 70%), hsl(28 100% 60%), hsl(0 68% 50%));
-    --gradient-cosmic: linear-gradient(180deg, hsl(35 80% 94%), hsl(40 60% 85%), hsl(35 50% 78%));
-    --shadow-divine: 0 0 40px hsl(28 100% 55% / 0.3), 0 0 80px hsl(43 96% 56% / 0.1);
+
+    --destructive: 0 68% 40%;
+    --destructive-foreground: 45 100% 97%;
+
+    --border: 210 50% 78%;
+    --input: 210 50% 84%;
+    --ring: 220 85% 42%;
+
+    /* Custom divine tokens – Krishna palette */
+    --gold: 43 96% 50%;
+    --saffron: 43 96% 56%;
+    --maroon: 0 68% 28%;
+    --royal-blue: 220 85% 42%;
+    --peacock-blue: 193 90% 38%;
+    --peacock-green: 140 55% 35%;
+    --pitambar: 48 100% 55%;
+    --feather-eye: 270 60% 50%;    /* iridescent purple eye of feather */
+
+    --gradient-divine: linear-gradient(135deg, hsl(220 85% 42% / 0.9), hsl(193 90% 38% / 0.7), hsl(140 55% 35% / 0.6));
+    --gradient-cosmic: linear-gradient(180deg, hsl(210 80% 96%), hsl(200 60% 88%), hsl(210 50% 80%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 96% 35%), hsl(48 100% 55%), hsl(43 96% 72%), hsl(48 100% 55%), hsl(43 96% 35%));
+    --gradient-card: linear-gradient(135deg, hsl(200 60% 93% / 0.95), hsl(220 85% 42% / 0.08));
+    --gradient-fire: linear-gradient(180deg, hsl(48 100% 55%), hsl(220 85% 42%), hsl(140 55% 35%));
+
+    --shadow-divine: 0 0 40px hsl(220 85% 42% / 0.35), 0 0 80px hsl(193 90% 38% / 0.18);
+    --shadow-fire: 0 0 20px hsl(193 90% 38% / 0.5), 0 0 60px hsl(220 85% 42% / 0.3);
+    --shadow-glow: 0 0 30px hsl(220 85% 42% / 0.55);
+
+    --sidebar-background: 200 60% 90%;
+    --sidebar-foreground: 220 60% 14%;
+    --sidebar-primary: 220 85% 42%;
+    --sidebar-primary-foreground: 45 100% 97%;
+    --sidebar-accent: 200 40% 87%;
+    --sidebar-accent-foreground: 220 60% 14%;
+    --sidebar-border: 210 50% 78%;
+    --sidebar-ring: 220 85% 42%;
   }
 }
 
