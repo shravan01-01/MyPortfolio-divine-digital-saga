@@ -24,10 +24,10 @@ export default function Index() {
   return (
     <div className={isDayMode ? "light-divine" : ""}>
       {/* Custom cursor */}
-      <CustomCursor />
+      <CustomCursor isKrishnaMode={isDayMode} />
 
       {/* Ambient floating particles */}
-      <FloatingParticles count={50} />
+      <FloatingParticles count={50} isKrishnaMode={isDayMode} />
 
       {/* Loading screen */}
       <AnimatePresence>
@@ -95,7 +95,7 @@ export default function Index() {
                 ))}
               </div>
 
-              <HeroSection />
+              <HeroSection isKrishnaMode={isDayMode} />
               <AboutSection />
               <SkillsSection />
               <ProjectsSection />

@@ -1,7 +1,11 @@
 import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
-export default function CustomCursor() {
+interface CustomCursorProps {
+  isKrishnaMode?: boolean;
+}
+
+export default function CustomCursor({ isKrishnaMode = false }: CustomCursorProps) {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   const trailX = useSpring(cursorX, { stiffness: 120, damping: 18 });
@@ -16,29 +20,118 @@ export default function CustomCursor() {
     return () => window.removeEventListener("mousemove", move);
   }, [cursorX, cursorY]);
 
+  if (isKrishnaMode) {
+    // Krishna Sudarshan Chakra cursor
+    return (
+      <>
+        {/* Main Sudarshan Chakra */}
+        <motion.div
+          className="custom-cursor pointer-events-none fixed z-[9999]"
+          style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
+        >
+          <div className="relative w-10 h-10">
+            {/* Outer serrated spinning ring */}
+            <motion.svg
+              width="40" height="40" viewBox="0 0 40 40"
+              className="absolute inset-0"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: "linear" }}
+            >
+              {/* 16-point serrated chakra */}
+              {Array.from({ length: 16 }).map((_, i) => {
+                const angle = (i * 360) / 16;
+                const rad = (angle * Math.PI) / 180;
+                const x1 = 20 + Math.cos(rad) * 14;
+                const y1 = 20 + Math.sin(rad) * 14;
+                const x2 = 20 + Math.cos(rad) * 19;
+                const y2 = 20 + Math.sin(rad) * 19;
+                return (
+                  <line
+                    key={i}
+                    x1={x1} y1={y1} x2={x2} y2={y2}
+                    stroke="hsl(220,85%,50%)"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
+                );
+              })}
+              <circle cx="20" cy="20" r="13" fill="none" stroke="hsl(220,85%,55%)" strokeWidth="1.5" opacity="0.8"/>
+            </motion.svg>
+
+            {/* Inner ring spinning reverse */}
+            <motion.svg
+              width="40" height="40" viewBox="0 0 40 40"
+              className="absolute inset-0"
+              animate={{ rotate: -360 }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+            >
+              {Array.from({ length: 8 }).map((_, i) => {
+                const angle = (i * 360) / 8;
+                const rad = (angle * Math.PI) / 180;
+                const x1 = 20 + Math.cos(rad) * 8;
+                const y1 = 20 + Math.sin(rad) * 8;
+                const x2 = 20 + Math.cos(rad) * 11;
+                const y2 = 20 + Math.sin(rad) * 11;
+                return (
+                  <line
+                    key={i}
+                    x1={x1} y1={y1} x2={x2} y2={y2}
+                    stroke="hsl(48,100%,55%)"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                );
+              })}
+              <circle cx="20" cy="20" r="7.5" fill="none" stroke="hsl(193,90%,50%)" strokeWidth="1" opacity="0.9"/>
+            </motion.svg>
+
+            {/* Center — glowing dot (Krishna blue eye) */}
+            <div
+              className="absolute"
+              style={{
+                top: "50%", left: "50%",
+                transform: "translate(-50%,-50%)",
+                width: 8, height: 8,
+                borderRadius: "50%",
+                background: "radial-gradient(circle, hsl(48,100%,85%), hsl(220,85%,55%))",
+                boxShadow: "0 0 10px hsl(220 85% 55% / 0.9), 0 0 20px hsl(193 90% 50% / 0.6)",
+              }}
+            />
+          </div>
+        </motion.div>
+
+        {/* Trailing peacock-blue glow */}
+        <motion.div
+          className="custom-cursor pointer-events-none fixed z-[9998]"
+          style={{ x: trailX, y: trailY, translateX: "-50%", translateY: "-50%" }}
+        >
+          <div
+            className="w-20 h-20 rounded-full opacity-20"
+            style={{ background: "radial-gradient(circle, hsl(220 85% 55%), hsl(193 90% 50% / 0.5), transparent 70%)" }}
+          />
+        </motion.div>
+      </>
+    );
+  }
+
+  // Default night — Mahabharata chakra cursor
   return (
     <>
-      {/* Main chakra cursor */}
       <motion.div
         className="custom-cursor pointer-events-none fixed z-[9999]"
         style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
       >
         <div className="relative w-8 h-8">
-          {/* Outer spinning ring */}
           <div className="absolute inset-0 rounded-full border-2 border-gold/60 chakra-spin" />
-          {/* Inner ring */}
           <div
             className="absolute inset-[4px] rounded-full border border-saffron/80"
             style={{ animation: "chakra-rotate 5s linear infinite reverse" }}
           />
-          {/* Center dot */}
           <div className="absolute inset-[10px] rounded-full bg-gold/90 shadow-glow" />
-          {/* Cross spokes */}
           <div className="absolute top-1/2 left-0 right-0 h-px bg-gold/40 -translate-y-1/2" />
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gold/40 -translate-x-1/2" />
         </div>
       </motion.div>
-      {/* Trailing glow */}
       <motion.div
         className="custom-cursor pointer-events-none fixed z-[9998]"
         style={{ x: trailX, y: trailY, translateX: "-50%", translateY: "-50%" }}
