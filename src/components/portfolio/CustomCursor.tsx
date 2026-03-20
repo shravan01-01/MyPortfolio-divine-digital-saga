@@ -46,10 +46,10 @@ export default function CustomCursor({ isKrishnaMode = false }: CustomCursorProp
                 const y2 = 20 + Math.sin(rad) * 19;
                 return (
                   <line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
-                    stroke="hsl(185,72%,38%)" strokeWidth="2.5" strokeLinecap="round" />
+                    stroke="hsl(196 90% 28%)" strokeWidth="3" strokeLinecap="round" />
                 );
               })}
-              <circle cx="20" cy="20" r="13" fill="none" stroke="hsl(185,72%,45%)" strokeWidth="1.5" opacity="0.85"/>
+              <circle cx="20" cy="20" r="13" fill="none" stroke="hsl(196 90% 18%)" strokeWidth="2.5" opacity="0.98"/>
             </motion.svg>
 
             {/* Inner ring spinning reverse — gold */}
@@ -68,10 +68,10 @@ export default function CustomCursor({ isKrishnaMode = false }: CustomCursorProp
                 const y2 = 20 + Math.sin(rad) * 11;
                 return (
                   <line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
-                    stroke="hsl(43,90%,52%)" strokeWidth="2" strokeLinecap="round" />
+                    stroke="hsl(43 90% 48%)" strokeWidth="2.2" strokeLinecap="round" />
                 );
               })}
-              <circle cx="20" cy="20" r="7.5" fill="none" stroke="hsl(160,60%,42%)" strokeWidth="1" opacity="0.9"/>
+              <circle cx="20" cy="20" r="7.5" fill="none" stroke="hsl(43 90% 40%)" strokeWidth="1.5" opacity="0.95"/>
             </motion.svg>
 
             {/* Center dot — teal-gold */}
@@ -80,10 +80,11 @@ export default function CustomCursor({ isKrishnaMode = false }: CustomCursorProp
               style={{
                 top: "50%", left: "50%",
                 transform: "translate(-50%,-50%)",
-                width: 8, height: 8,
+                width: 10, height: 10,
                 borderRadius: "50%",
-                background: "radial-gradient(circle, hsl(43,90%,80%), hsl(185,72%,42%))",
-                boxShadow: "0 0 10px hsl(185 72% 45% / 0.9), 0 0 20px hsl(160 60% 40% / 0.6)",
+                background: "radial-gradient(circle, hsl(196 90% 35%), hsl(43 90% 48%))",
+                border: "2px solid hsl(0 0% 100%)",
+                boxShadow: "0 0 12px hsl(196 90% 28% / 0.85), 0 0 24px hsl(43 90% 48% / 0.55)",
               }}
             />
           </div>
@@ -95,8 +96,8 @@ export default function CustomCursor({ isKrishnaMode = false }: CustomCursorProp
           style={{ x: trailX, y: trailY, translateX: "-50%", translateY: "-50%" }}
         >
           <div
-            className="w-20 h-20 rounded-full opacity-20"
-            style={{ background: "radial-gradient(circle, hsl(185 72% 45%), hsl(160 60% 38% / 0.5), transparent 70%)" }}
+            className="w-20 h-20 rounded-full opacity-70"
+            style={{ background: "radial-gradient(circle, hsl(196 90% 28% / 0.6), hsl(43 90% 48% / 0.3), transparent 70%)" }}
           />
         </motion.div>
       </>

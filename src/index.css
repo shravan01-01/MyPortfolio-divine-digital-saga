@@ -72,70 +72,65 @@
   }
 
   .light-divine {
-    /* Day: Krishna — extracted from reference image
-       Primary: deep peacock teal hsl(196,90%,28%) = #076987
-       Mid teal: hsl(194,50%,52%) = #49A5BC
-       Forest green: hsl(130,32%,22%) = #193D1E
-       Gold: hsl(43,90%,48%) for bansuri accents
-    */
-    --background: 0 0% 100%;           /* pure white */
-    --foreground: 196 90% 15%;         /* very deep peacock teal text */
+    /* Day: Krishna — refined, higher contrast, softer light glow */
+    --background: 208 22% 96%;          /* off-white ivory for comfort */
+    --foreground: 196 90% 15%;          /* deep peacock teal text */
 
-    --card: 196 60% 97%;               /* near-white with a whisper of teal */
-    --card-foreground: 196 90% 15%;
+    --card: 204 40% 93%;                /* gentle teal tint */
+    --card-foreground: 196 90% 14%; 
 
-    --popover: 196 60% 97%;
-    --popover-foreground: 196 90% 15%;
+    --popover: 204 38% 92%;
+    --popover-foreground: 196 90% 14%;
 
-    --primary: 196 90% 28%;            /* deep peacock teal from image */
-    --primary-foreground: 0 0% 100%;
+    --primary: 196 90% 26%;             /* slightly darker peacock teal */
+    --primary-foreground: 0 0% 100%; 
 
-    --secondary: 43 90% 48%;           /* bansuri gold */
-    --secondary-foreground: 196 90% 10%;
+    --secondary: 43 90% 46%;            /* warmer soft gold */
+    --secondary-foreground: 196 90% 12%;
 
-    --muted: 196 40% 93%;              /* very light teal wash */
-    --muted-foreground: 196 45% 35%;
+    --muted: 193 40% 92%;               /* pale teal wash */
+    --muted-foreground: 196 45% 32%; 
 
-    --accent: 130 32% 22%;             /* forest green from image */
-    --accent-foreground: 0 0% 100%;
+    --accent: 130 32% 20%;              /* richer forest green */
+    --accent-foreground: 0 0% 100%; 
 
     --destructive: 0 68% 40%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 196 55% 75%;
-    --input: 196 50% 90%;
-    --ring: 196 90% 28%;
+    --border: 196 55% 70%;
+    --input: 203 38% 90%;
+    --ring: 196 90% 26%;
 
-    /* Custom divine tokens – exact Krishna image palette */
-    --gold: 43 90% 48%;
-    --saffron: 196 90% 32%;            /* teal accent in place of saffron */
+    /* Custom divine tokens */
+    --gold: 43 90% 46%;
+    --saffron: 196 90% 30%;
     --maroon: 0 55% 30%;
-    --royal-blue: 196 90% 28%;
-    --peacock-teal: 196 90% 28%;       /* #076987 */
-    --peacock-mid: 194 50% 52%;        /* #49A5BC */
-    --peacock-deep: 196 90% 20%;       /* deeper shade */
-    --peacock-green: 130 32% 22%;      /* #193D1E forest */
-    --bansuri-gold: 43 90% 48%;
-    --feather-eye: 194 50% 55%;
+    --royal-blue: 196 90% 26%;
+    --peacock-teal: 196 90% 26%;
+    --peacock-mid: 194 50% 50%; 
+    --peacock-deep: 196 90% 18%;
+    --peacock-green: 130 32% 20%;
+    --bansuri-gold: 43 90% 46%;
+    --feather-eye: 194 50% 53%;
 
-    --gradient-divine: linear-gradient(135deg, hsl(196 90% 28% / 0.15), hsl(194 50% 52% / 0.10), hsl(43 90% 48% / 0.08));
-    --gradient-cosmic: linear-gradient(180deg, hsl(0 0% 100%), hsl(196 60% 97%), hsl(196 40% 93%));
-    --gradient-gold: linear-gradient(135deg, hsl(43 90% 30%), hsl(43 90% 48%), hsl(43 90% 65%), hsl(43 90% 48%), hsl(43 90% 30%));
-    --gradient-card: linear-gradient(135deg, hsl(196 60% 97% / 0.98), hsl(196 90% 28% / 0.06));
-    --gradient-fire: linear-gradient(180deg, hsl(43 90% 55%), hsl(196 90% 32%), hsl(130 32% 28%));
+    --gradient-divine: linear-gradient(135deg, hsl(196 90% 26% / 0.2), hsl(194 50% 50% / 0.14), hsl(43 90% 46% / 0.10));
+    --gradient-cosmic: linear-gradient(180deg, hsl(0 0% 100%), hsl(204 38% 92%), hsl(193 40% 92%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 90% 34%), hsl(43 90% 46%), hsl(43 90% 62%), hsl(43 90% 46%), hsl(43 90% 34%));
+    --gradient-card: linear-gradient(135deg, hsl(204 40% 93% / 0.95), hsl(196 90% 26% / 0.12));
+    --gradient-fire: linear-gradient(180deg, hsl(43 90% 53%), hsl(196 90% 30%), hsl(130 32% 26%));
 
-    --shadow-divine: 0 4px 30px hsl(196 90% 28% / 0.18), 0 1px 8px hsl(196 90% 28% / 0.10);
-    --shadow-fire: 0 4px 20px hsl(194 50% 52% / 0.30), 0 1px 6px hsl(43 90% 48% / 0.15);
-    --shadow-glow: 0 0 24px hsl(196 90% 28% / 0.35);
+    --shadow-divine: 0 4px 30px hsl(196 90% 26% / 0.25), 0 1px 8px hsl(196 90% 26% / 0.14);
+    --shadow-fire: 0 4px 25px hsl(194 50% 50% / 0.35), 0 1px 7px hsl(43 90% 46% / 0.18);
+    --shadow-glow: 0 0 24px hsl(196 90% 26% / 0.4);
 
-    --sidebar-background: 196 60% 96%;
-    --sidebar-foreground: 196 90% 15%;
-    --sidebar-primary: 196 90% 28%;
+    --sidebar-background: 203 38% 91%;
+    --sidebar-foreground: 196 90% 14%;
+    --sidebar-primary: 196 90% 26%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 196 40% 93%;
-    --sidebar-accent-foreground: 196 90% 15%;
-    --sidebar-border: 196 55% 75%;
-    --sidebar-ring: 196 90% 28%;
+    --sidebar-accent: 193 40% 92%;
+    --sidebar-accent-foreground: 196 90% 14%;
+    --sidebar-border: 196 55% 70%;
+    --sidebar-ring: 196 90% 26%;
   }
 }
 
