@@ -1,7 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
-import krishnaBg from "@/assets/krishna-bg.jpg";
 import { cv } from "@/data/cv";
 
 const mantras = ["ॐ", "नमः", "सत्यम्", "शिवम्", "सुन्दरम्"];
