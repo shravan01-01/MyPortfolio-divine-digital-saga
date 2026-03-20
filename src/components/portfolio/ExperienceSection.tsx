@@ -13,15 +13,27 @@ const experiences = cv.experience.map((exp) => ({
   icon: "📊",
 }));
 
-export default function ExperienceSection() {
+interface ExperienceSectionProps {
+  isKrishnaMode?: boolean;
+}
+
+export default function ExperienceSection({ isKrishnaMode = false }: ExperienceSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="experience" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
+    <section
+      id="experience"
+      className="relative py-32 overflow-hidden"
+      style={isKrishnaMode ? {
+        background: "linear-gradient(180deg, hsl(196 40% 96%), hsl(0 0% 100%) 60%, hsl(196 60% 97%))"
+      } : undefined}
+    >
+      <div className="absolute inset-0 opacity-[0.05]">
         <div className="absolute inset-0" style={{
-          backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 80px, hsl(43 96% 56% / 0.3) 80px, hsl(43 96% 56% / 0.3) 81px)"
+          backgroundImage: isKrishnaMode
+            ? "repeating-linear-gradient(0deg, transparent, transparent 80px, hsl(196 90% 28% / 0.25) 80px, hsl(196 90% 28% / 0.25) 81px)"
+            : "repeating-linear-gradient(0deg, transparent, transparent 80px, hsl(43 96% 56% / 0.3) 80px, hsl(43 96% 56% / 0.3) 81px)"
         }} />
       </div>
 
@@ -47,7 +59,11 @@ export default function ExperienceSection() {
           {/* Central path */}
           <div
             className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden md:block"
-            style={{ background: "linear-gradient(to bottom, transparent, hsl(43 96% 56% / 0.4) 10%, hsl(43 96% 56% / 0.4) 90%, transparent)" }}
+            style={{
+              background: isKrishnaMode
+                ? "linear-gradient(to bottom, transparent, hsl(196 90% 28% / 0.5) 10%, hsl(194 50% 52% / 0.4) 90%, transparent)"
+                : "linear-gradient(to bottom, transparent, hsl(43 96% 56% / 0.4) 10%, hsl(43 96% 56% / 0.4) 90%, transparent)"
+            }}
           />
 
           {experiences.map((exp, i) => (
@@ -62,7 +78,11 @@ export default function ExperienceSection() {
               <div className="flex-1 scroll-card p-6 group hover-fire relative overflow-hidden">
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(43 96% 56% / 0.06), transparent 60%)" }}
+                  style={{
+                    background: isKrishnaMode
+                      ? "radial-gradient(ellipse at 50% 0%, hsl(196 90% 28% / 0.07), transparent 60%)"
+                      : "radial-gradient(ellipse at 50% 0%, hsl(43 96% 56% / 0.06), transparent 60%)"
+                  }}
                 />
 
                 <div className="flex items-start justify-between mb-3">

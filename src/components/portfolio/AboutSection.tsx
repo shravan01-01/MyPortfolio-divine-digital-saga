@@ -9,23 +9,39 @@ const journey = [
   { year: "2024", title: "Data Analyst Intern", subtitle: "अनुभव", desc: "Joined iGurus consultancy to build analytics dashboards and data pipelines.", icon: "📊" },
 ];
 
-export default function AboutSection() {
+interface AboutSectionProps {
+  isKrishnaMode?: boolean;
+}
+
+export default function AboutSection({ isKrishnaMode = false }: AboutSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="relative py-32 overflow-hidden texture-overlay">
+    <section
+      id="about"
+      className="relative py-32 overflow-hidden texture-overlay"
+      style={isKrishnaMode ? { background: "hsl(0 0% 100%)" } : undefined}
+    >
       {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-[0.07] pointer-events-none">
         <div
           className="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl"
-          style={{ background: "hsl(43 96% 56%)" }}
+          style={{ background: isKrishnaMode ? "hsl(196 90% 28%)" : "hsl(43 96% 56%)" }}
         />
         <div
           className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl"
-          style={{ background: "hsl(0 68% 35%)" }}
+          style={{ background: isKrishnaMode ? "hsl(130 32% 22%)" : "hsl(0 68% 35%)" }}
         />
       </div>
+
+      {/* Krishna: subtle peacock teal top stripe */}
+      {isKrishnaMode && (
+        <div
+          className="absolute top-0 inset-x-0 h-1"
+          style={{ background: "linear-gradient(to right, transparent, hsl(196 90% 28% / 0.5), hsl(194 50% 52% / 0.7), hsl(196 90% 28% / 0.5), transparent)" }}
+        />
+      )}
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section header */}
@@ -93,7 +109,9 @@ export default function AboutSection() {
             {/* Timeline line */}
             <div
               className="absolute left-6 top-0 bottom-0 w-px"
-              style={{ background: "linear-gradient(to bottom, transparent, hsl(43 96% 56% / 0.5), transparent)" }}
+              style={{ background: isKrishnaMode
+                ? "linear-gradient(to bottom, transparent, hsl(196 90% 28% / 0.6), transparent)"
+                : "linear-gradient(to bottom, transparent, hsl(43 96% 56% / 0.5), transparent)" }}
             />
 
             {journey.map((item, i) => (

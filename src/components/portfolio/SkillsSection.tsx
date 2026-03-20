@@ -8,23 +8,49 @@ const weapons = cv.skills.map((skill, i) => ({
   weapon: skill,
   desc: skill,
   icon: "⚡",
-  color: ["hsl(43 96% 56%)", "hsl(225 68% 55%)", "hsl(120 60% 40%)", "hsl(28 100% 55%)", "hsl(190 90% 50%)"][i % 5],
+  color: ["hsl(43 90% 48%)", "hsl(196 90% 28%)", "hsl(130 32% 35%)", "hsl(194 50% 52%)", "hsl(196 60% 42%)"][i % 5],
 }));
 
-export default function SkillsSection() {
+interface SkillsSectionProps {
+  isKrishnaMode?: boolean;
+}
+
+export default function SkillsSection({ isKrishnaMode = false }: SkillsSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="skills" className="relative py-32 overflow-hidden">
+    <section
+      id="skills"
+      className="relative py-32 overflow-hidden"
+      style={isKrishnaMode ? {
+        background: "linear-gradient(180deg, hsl(196 60% 97%), hsl(0 0% 100%) 50%, hsl(196 40% 96%))"
+      } : undefined}
+    >
       {/* Background mandalas */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-[0.03]"
-          style={{ border: "1px solid hsl(43 96% 56%)", boxShadow: "0 0 0 40px hsl(43 96% 56% / 0.01), 0 0 0 80px hsl(43 96% 56% / 0.01)" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
+          style={{
+            opacity: isKrishnaMode ? 0.06 : 0.03,
+            border: `1px solid ${isKrishnaMode ? "hsl(196 90% 28%)" : "hsl(43 96% 56%)"}`,
+          }}
         />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-[0.04] border border-saffron/30 chakra-spin" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full opacity-[0.06] border border-gold/20" style={{ animation: "chakra-rotate 20s linear infinite reverse" }} />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full chakra-spin"
+          style={{
+            opacity: isKrishnaMode ? 0.08 : 0.04,
+            border: `1px solid ${isKrishnaMode ? "hsl(194 50% 52% / 0.5)" : "hsl(28 100% 55% / 0.3)"}`,
+          }}
+        />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full"
+          style={{
+            opacity: isKrishnaMode ? 0.10 : 0.06,
+            border: `1px solid ${isKrishnaMode ? "hsl(43 90% 48% / 0.3)" : "hsl(43 96% 56% / 0.2)"}`,
+            animation: "chakra-rotate 20s linear infinite reverse",
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -59,7 +85,7 @@ export default function SkillsSection() {
               {/* Glow on hover */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{ background: `radial-gradient(ellipse at center, ${weapon.color}10, transparent 70%)` }}
+                style={{ background: `radial-gradient(ellipse at center, ${weapon.color}15, transparent 70%)` }}
               />
 
               <div className="flex items-start gap-3 mb-4">
