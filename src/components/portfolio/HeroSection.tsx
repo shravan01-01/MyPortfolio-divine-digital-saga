@@ -1,7 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
-import krishnaBg from "@/assets/krishna-bg.jpg";
 import { cv } from "@/data/cv";
 
 const mantras = ["ॐ", "नमः", "सत्यम्", "शिवम्", "सुन्दरम्"];
@@ -114,28 +113,49 @@ export default function HeroSection({ isKrishnaMode = false }: HeroSectionProps)
     >
       {/* Parallax Background */}
       <motion.div className="absolute inset-0 z-0" style={{ y, scale }}>
-        <img
-          src={isKrishnaMode ? krishnaBg : heroBg}
-          alt={isKrishnaMode ? "Krishna Peacock" : "Divine Temple"}
-          className="w-full h-full object-cover object-center"
-          style={{
-            filter: isKrishnaMode
-              ? "brightness(0.80) saturate(1.3)"
-              : "brightness(0.55) saturate(1.3)",
-          }}
-        />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50" />
-        {/* Krishna mode: teal peacock overlay */}
-        {isKrishnaMode && (
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(160deg, hsl(185 72% 32% / 0.22), hsl(160 60% 35% / 0.14), transparent 60%)",
-            }}
-          />
+        {isKrishnaMode ? (
+          /* Krishna mode: beautiful white + peacock teal gradient — no dark image */
+          <>
+            <div
+              className="absolute inset-0"
+              style={{
+                background: "linear-gradient(160deg, hsl(196 90% 28% / 0.12) 0%, hsl(0 0% 100%) 35%, hsl(194 50% 97%) 65%, hsl(130 32% 95%) 100%)",
+              }}
+            />
+            {/* Radial peacock glow top-left */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: "radial-gradient(ellipse 70% 60% at 15% 20%, hsl(196 90% 28% / 0.14), transparent 70%)",
+              }}
+            />
+            {/* Subtle gold shimmer bottom */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: "radial-gradient(ellipse 50% 40% at 85% 80%, hsl(43 90% 48% / 0.10), transparent 70%)",
+              }}
+            />
+            {/* Soft forest green accent right */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: "radial-gradient(ellipse 40% 50% at 90% 30%, hsl(130 32% 22% / 0.08), transparent 70%)",
+              }}
+            />
+          </>
+        ) : (
+          <>
+            <img
+              src={heroBg}
+              alt="Divine Temple"
+              className="w-full h-full object-cover object-center"
+              style={{ filter: "brightness(0.55) saturate(1.3)" }}
+            />
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50" />
+          </>
         )}
       </motion.div>
 

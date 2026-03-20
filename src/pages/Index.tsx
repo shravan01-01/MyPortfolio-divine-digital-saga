@@ -96,12 +96,12 @@ export default function Index() {
               </div>
 
               <HeroSection isKrishnaMode={isDayMode} />
-              <AboutSection />
-              <SkillsSection />
-              <ProjectsSection />
-              <ExperienceSection />
+              <AboutSection isKrishnaMode={isDayMode} />
+              <SkillsSection isKrishnaMode={isDayMode} />
+              <ProjectsSection isKrishnaMode={isDayMode} />
+              <ExperienceSection isKrishnaMode={isDayMode} />
               <EducationSection />
-              <ContactSection />
+              <ContactSection isKrishnaMode={isDayMode} />
               <FooterSection />
             </main>
           </motion.div>

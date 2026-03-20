@@ -16,17 +16,40 @@ const projects = cv.projects.map((project, index) => ({
   github: "#",
 }));
 
-export default function ProjectsSection() {
+interface ProjectsSectionProps {
+  isKrishnaMode?: boolean;
+}
+
+export default function ProjectsSection({ isKrishnaMode = false }: ProjectsSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [expanded, setExpanded] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="relative py-32 overflow-hidden texture-overlay">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 right-0 w-80 h-80 rounded-full blur-3xl" style={{ background: "hsl(43 96% 56%)" }} />
-        <div className="absolute bottom-1/4 left-0 w-80 h-80 rounded-full blur-3xl" style={{ background: "hsl(225 68% 35%)" }} />
+    <section
+      id="projects"
+      className="relative py-32 overflow-hidden texture-overlay"
+      style={isKrishnaMode ? { background: "hsl(0 0% 100%)" } : undefined}
+    >
+      {/* Background blobs */}
+      <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
+        <div
+          className="absolute top-1/4 right-0 w-80 h-80 rounded-full blur-3xl"
+          style={{ background: isKrishnaMode ? "hsl(196 90% 28%)" : "hsl(43 96% 56%)" }}
+        />
+        <div
+          className="absolute bottom-1/4 left-0 w-80 h-80 rounded-full blur-3xl"
+          style={{ background: isKrishnaMode ? "hsl(194 50% 52%)" : "hsl(225 68% 35%)" }}
+        />
       </div>
+
+      {/* Krishna: peacock teal top stripe */}
+      {isKrishnaMode && (
+        <div
+          className="absolute top-0 inset-x-0 h-1"
+          style={{ background: "linear-gradient(to right, transparent, hsl(194 50% 52% / 0.7), hsl(196 90% 28% / 0.5), transparent)" }}
+        />
+      )}
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -60,7 +83,11 @@ export default function ProjectsSection() {
               {/* Hover overlay */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{ background: `radial-gradient(ellipse at 50% 0%, ${project.color}08, transparent 60%)` }}
+                style={{
+                  background: isKrishnaMode
+                    ? "radial-gradient(ellipse at 50% 0%, hsl(196 90% 28% / 0.08), transparent 60%)"
+                    : `radial-gradient(ellipse at 50% 0%, ${project.color}08, transparent 60%)`
+                }}
               />
 
               {/* Top row */}
@@ -103,7 +130,11 @@ export default function ProjectsSection() {
                   <span
                     key={tag}
                     className="font-epic text-xs px-2 py-1 rounded border"
-                    style={{ borderColor: `${project.color}30`, color: `${project.color}`, background: `${project.color}10` }}
+                    style={{
+                      borderColor: isKrishnaMode ? "hsl(196 90% 28% / 0.3)" : `${project.color}30`,
+                      color: isKrishnaMode ? "hsl(196 90% 28%)" : project.color,
+                      background: isKrishnaMode ? "hsl(196 90% 28% / 0.07)" : `${project.color}10`,
+                    }}
                   >
                     {tag}
                   </span>

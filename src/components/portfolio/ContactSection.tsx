@@ -3,7 +3,11 @@ import { motion, useInView } from "framer-motion";
 import { Send, Mail, MapPin, Phone } from "lucide-react";
 import { cv } from "@/data/cv";
 
-export default function ContactSection() {
+interface ContactSectionProps {
+  isKrishnaMode?: boolean;
+}
+
+export default function ContactSection({ isKrishnaMode = false }: ContactSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [sent, setSent] = useState(false);
@@ -16,14 +20,31 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-32 overflow-hidden texture-overlay">
+    <section
+      id="contact"
+      className="relative py-32 overflow-hidden texture-overlay"
+      style={isKrishnaMode ? { background: "hsl(0 0% 100%)" } : undefined}
+    >
       {/* Divine light */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-5 blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(43 96% 56%), hsl(0 68% 35%), transparent)" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl"
+          style={{
+            opacity: isKrishnaMode ? 0.06 : 0.05,
+            background: isKrishnaMode
+              ? "radial-gradient(circle, hsl(196 90% 28%), hsl(194 50% 52%), transparent)"
+              : "radial-gradient(circle, hsl(43 96% 56%), hsl(0 68% 35%), transparent)"
+          }}
         />
       </div>
+
+      {/* Krishna: decorative teal bottom stripe */}
+      {isKrishnaMode && (
+        <div
+          className="absolute bottom-0 inset-x-0 h-1"
+          style={{ background: "linear-gradient(to right, transparent, hsl(196 90% 28% / 0.5), hsl(194 50% 52% / 0.7), hsl(196 90% 28% / 0.5), transparent)" }}
+        />
+      )}
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -154,12 +175,22 @@ export default function ContactSection() {
                            transition-all duration-500"
                 style={{
                   background: sent
-                    ? "linear-gradient(135deg, hsl(120 60% 30%), hsl(120 60% 40%))"
-                    : "linear-gradient(135deg, hsl(43 96% 35%), hsl(43 96% 56%), hsl(43 96% 35%))",
+                    ? "linear-gradient(135deg, hsl(130 32% 25%), hsl(130 32% 35%))"
+                    : isKrishnaMode
+                      ? "linear-gradient(135deg, hsl(196 90% 20%), hsl(196 90% 28%), hsl(194 50% 36%))"
+                      : "linear-gradient(135deg, hsl(43 96% 35%), hsl(43 96% 56%), hsl(43 96% 35%))",
                   backgroundSize: "200% auto",
-                  color: "hsl(0 0% 5%)",
-                  border: sent ? "1px solid hsl(120 60% 50%)" : "1px solid hsl(43 96% 56%)",
-                  boxShadow: sent ? "0 0 30px hsl(120 60% 40% / 0.4)" : "0 0 20px hsl(43 96% 56% / 0.3)",
+                  color: "hsl(0 0% 100%)",
+                  border: sent
+                    ? "1px solid hsl(130 32% 40%)"
+                    : isKrishnaMode
+                      ? "1px solid hsl(196 90% 45%)"
+                      : "1px solid hsl(43 96% 56%)",
+                  boxShadow: sent
+                    ? "0 0 30px hsl(130 32% 35% / 0.4)"
+                    : isKrishnaMode
+                      ? "0 0 20px hsl(196 90% 28% / 0.35)"
+                      : "0 0 20px hsl(43 96% 56% / 0.3)",
                 }}
               >
                 <span className="relative z-10 flex items-center justify-center gap-3">
@@ -175,8 +206,11 @@ export default function ContactSection() {
                     </>
                   )}
                 </span>
-                {/* Flame animation */}
-                <div className="absolute inset-0 bg-saffron/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                {/* Glow animation on hover */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{ background: isKrishnaMode ? "hsl(194 50% 52% / 0.15)" : "hsl(28 100% 55% / 0.10)" }}
+                />
               </button>
             </form>
           </motion.div>
