@@ -210,7 +210,7 @@ export default function FloatingParticles({
     <canvas
       ref={canvasRef}
       className="pointer-events-none fixed inset-0 z-[1]"
-      style={{ mixBlendMode: isKrishnaMode ? "multiply" : "screen" }}
+      style={{ mixBlendMode: isKrishnaMode ? "normal" : "screen" }}
     />
   );
 }
