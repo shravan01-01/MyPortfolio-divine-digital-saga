@@ -26,7 +26,7 @@ export default function CustomCursor({ isKrishnaMode = false }: CustomCursorProp
       <>
         {/* Main Sudarshan Chakra */}
         <motion.div
-          className="custom-cursor pointer-events-none fixed z-[9999]"
+          className="custom-cursor custom-cursor--day pointer-events-none fixed z-[9999]"
           style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
         >
           <div className="relative w-10 h-10">
@@ -46,10 +46,10 @@ export default function CustomCursor({ isKrishnaMode = false }: CustomCursorProp
                 const y2 = 20 + Math.sin(rad) * 19;
                 return (
                   <line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
-                    stroke="hsl(196 90% 28%)" strokeWidth="3" strokeLinecap="round" />
+                    stroke="hsl(196 95% 18%)" strokeWidth="3" strokeLinecap="round" />
                 );
               })}
-              <circle cx="20" cy="20" r="13" fill="none" stroke="hsl(196 90% 18%)" strokeWidth="2.5" opacity="0.98"/>
+              <circle cx="20" cy="20" r="13" fill="none" stroke="hsl(196 95% 12%)" strokeWidth="2.5" opacity="0.98"/>
             </motion.svg>
 
             {/* Inner ring spinning reverse — gold */}
@@ -68,10 +68,10 @@ export default function CustomCursor({ isKrishnaMode = false }: CustomCursorProp
                 const y2 = 20 + Math.sin(rad) * 11;
                 return (
                   <line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
-                    stroke="hsl(43 90% 48%)" strokeWidth="2.2" strokeLinecap="round" />
+                    stroke="hsl(43 96% 40%)" strokeWidth="2.2" strokeLinecap="round" />
                 );
               })}
-              <circle cx="20" cy="20" r="7.5" fill="none" stroke="hsl(43 90% 40%)" strokeWidth="1.5" opacity="0.95"/>
+              <circle cx="20" cy="20" r="7.5" fill="none" stroke="hsl(43 96% 30%)" strokeWidth="1.5" opacity="0.95"/>
             </motion.svg>
 
             {/* Center dot — teal-gold */}
@@ -82,9 +82,9 @@ export default function CustomCursor({ isKrishnaMode = false }: CustomCursorProp
                 transform: "translate(-50%,-50%)",
                 width: 10, height: 10,
                 borderRadius: "50%",
-                background: "radial-gradient(circle, hsl(196 90% 35%), hsl(43 90% 48%))",
+                background: "radial-gradient(circle, hsl(196 95% 24%), hsl(43 96% 40%))",
                 border: "2px solid hsl(0 0% 100%)",
-                boxShadow: "0 0 12px hsl(196 90% 28% / 0.85), 0 0 24px hsl(43 90% 48% / 0.55)",
+                boxShadow: "0 0 14px hsl(196 95% 22% / 0.9), 0 0 26px hsl(43 96% 40% / 0.55)",
               }}
             />
           </div>
@@ -92,43 +92,135 @@ export default function CustomCursor({ isKrishnaMode = false }: CustomCursorProp
 
         {/* Trailing teal glow */}
         <motion.div
-          className="custom-cursor pointer-events-none fixed z-[9998]"
+          className="custom-cursor custom-cursor--day pointer-events-none fixed z-[9998]"
           style={{ x: trailX, y: trailY, translateX: "-50%", translateY: "-50%" }}
         >
           <div
-            className="w-20 h-20 rounded-full opacity-70"
-            style={{ background: "radial-gradient(circle, hsl(196 90% 28% / 0.6), hsl(43 90% 48% / 0.3), transparent 70%)" }}
+            className="w-20 h-20 rounded-full opacity-90"
+            style={{ background: "radial-gradient(circle, hsl(196 95% 18% / 0.75), hsl(43 96% 40% / 0.35), transparent 70%)" }}
           />
         </motion.div>
       </>
     );
   }
 
-  // Default night — Mahabharata chakra cursor
+  // Dark mode: match light mode cursor so the on-page cursor stays consistently readable.
   return (
     <>
       <motion.div
-        className="custom-cursor pointer-events-none fixed z-[9999]"
+        className="custom-cursor custom-cursor--day pointer-events-none fixed z-[9999]"
         style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
       >
-        <div className="relative w-8 h-8">
-          <div className="absolute inset-0 rounded-full border-2 border-gold/60 chakra-spin" />
+        <div className="relative w-10 h-10">
+          {/* Outer serrated spinning ring — teal */}
+          <motion.svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            className="absolute inset-0"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "linear" }}
+          >
+            {Array.from({ length: 16 }).map((_, i) => {
+              const angle = (i * 360) / 16;
+              const rad = (angle * Math.PI) / 180;
+              const x1 = 20 + Math.cos(rad) * 14;
+              const y1 = 20 + Math.sin(rad) * 14;
+              const x2 = 20 + Math.cos(rad) * 19;
+              const y2 = 20 + Math.sin(rad) * 19;
+              return (
+                <line
+                  key={i}
+                  x1={x1}
+                  y1={y1}
+                  x2={x2}
+                  y2={y2}
+                  stroke="hsl(196 95% 18%)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+              );
+            })}
+            <circle
+              cx="20"
+              cy="20"
+              r="13"
+              fill="none"
+              stroke="hsl(196 95% 12%)"
+              strokeWidth="2.5"
+              opacity="0.98"
+            />
+          </motion.svg>
+
+          {/* Inner ring spinning reverse — gold */}
+          <motion.svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            className="absolute inset-0"
+            animate={{ rotate: -360 }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+          >
+            {Array.from({ length: 8 }).map((_, i) => {
+              const angle = (i * 360) / 8;
+              const rad = (angle * Math.PI) / 180;
+              const x1 = 20 + Math.cos(rad) * 8;
+              const y1 = 20 + Math.sin(rad) * 8;
+              const x2 = 20 + Math.cos(rad) * 11;
+              const y2 = 20 + Math.sin(rad) * 11;
+              return (
+                <line
+                  key={i}
+                  x1={x1}
+                  y1={y1}
+                  x2={x2}
+                  y2={y2}
+                  stroke="hsl(43 96% 40%)"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                />
+              );
+            })}
+            <circle
+              cx="20"
+              cy="20"
+              r="7.5"
+              fill="none"
+              stroke="hsl(43 96% 30%)"
+              strokeWidth="1.5"
+              opacity="0.95"
+            />
+          </motion.svg>
+
+          {/* Center dot — teal-gold */}
           <div
-            className="absolute inset-[4px] rounded-full border border-saffron/80"
-            style={{ animation: "chakra-rotate 5s linear infinite reverse" }}
+            className="absolute"
+            style={{
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%,-50%)",
+              width: 10,
+              height: 10,
+              borderRadius: "50%",
+              background: "radial-gradient(circle, hsl(196 95% 24%), hsl(43 96% 40%))",
+              border: "2px solid hsl(0 0% 100%)",
+              boxShadow: "0 0 14px hsl(196 95% 22% / 0.9), 0 0 26px hsl(43 96% 40% / 0.55)",
+            }}
           />
-          <div className="absolute inset-[10px] rounded-full bg-gold/90 shadow-glow" />
-          <div className="absolute top-1/2 left-0 right-0 h-px bg-gold/40 -translate-y-1/2" />
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gold/40 -translate-x-1/2" />
         </div>
       </motion.div>
+
+      {/* Trailing teal glow */}
       <motion.div
-        className="custom-cursor pointer-events-none fixed z-[9998]"
+        className="custom-cursor custom-cursor--day pointer-events-none fixed z-[9998]"
         style={{ x: trailX, y: trailY, translateX: "-50%", translateY: "-50%" }}
       >
         <div
-          className="w-16 h-16 rounded-full opacity-20"
-          style={{ background: "radial-gradient(circle, hsl(43 96% 56%), transparent 70%)" }}
+          className="w-20 h-20 rounded-full opacity-90"
+          style={{
+            background:
+              "radial-gradient(circle, hsl(196 95% 18% / 0.75), hsl(43 96% 40% / 0.35), transparent 70%)",
+          }}
         />
       </motion.div>
     </>

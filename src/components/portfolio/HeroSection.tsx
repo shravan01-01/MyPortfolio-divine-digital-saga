@@ -1,7 +1,11 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import profilePicFallback from "@/assets/krishna-ref.jpg";
 import { cv } from "@/data/cv";
+
+// Primary from public folder, fallback to local bundler asset
+const profilePicPublic = "/Shravan.jpeg";
 
 const mantras = ["ॐ", "नमः", "सत्यम्", "शिवम्", "सुन्दरम्"];
 const krishnaMantras = ["ॐ", "कृष्ण", "हरे", "गोविन्द", "माधव"];
@@ -92,6 +96,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ isKrishnaMode = false }: HeroSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const [profileImageSrc, setProfileImageSrc] = useState(profilePicPublic);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 600], [0, 200]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
@@ -298,24 +303,61 @@ export default function HeroSection({ isKrishnaMode = false }: HeroSectionProps)
           Welcome to my Digital Universe
         </motion.p>
 
-        {/* Name */}
-        <div className="relative mb-8">
-          <div
-            className="absolute inset-0 blur-3xl opacity-30"
-            style={{
-              background: isKrishnaMode
-                ? `radial-gradient(ellipse, ${tealBright}, transparent 70%)`
-                : "radial-gradient(ellipse, hsl(43 96% 56%), transparent 70%)",
-            }}
-          />
-          <motion.h1
-            initial={{ opacity: 0, letterSpacing: "0.5em" }}
-            animate={{ opacity: 1, letterSpacing: "0.08em" }}
-            transition={{ duration: 2.5, delay: 1.2, ease: "easeOut" }}
-            className="font-divine text-5xl md:text-7xl lg:text-8xl section-heading relative"
+        {/* Name + profile picture */}
+        <div className="flex flex-col items-center mb-8 gap-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 1, delay: 0.9, ease: "easeOut" }}
+            className="relative w-28 h-28 md:w-32 md:h-32"
           >
-            {cv.personal.name}
-          </motion.h1>
+            {/* Ambient halo behind the avatar */}
+            <div
+              className="absolute inset-0 rounded-full blur-3xl opacity-30"
+              style={{
+                background: isKrishnaMode
+                  ? `radial-gradient(ellipse, ${tealBright}, transparent 70%)`
+                  : "radial-gradient(ellipse, hsl(43 96% 56%), transparent 70%)",
+              }}
+            />
+
+            {/* Outer ring */}
+            <div
+              className="absolute inset-0 rounded-full"
+              style={{
+                boxShadow: isKrishnaMode
+                  ? `0 0 28px hsl(185 72% 42% / 0.35), 0 0 60px hsl(43 90% 46% / 0.15)`
+                  : `0 0 28px hsl(43 96% 56% / 0.30), 0 0 60px hsl(28 100% 55% / 0.12)`,
+                border: `1px solid ${isKrishnaMode ? "hsl(185 72% 45% / 0.55)" : "hsl(43 96% 60% / 0.45)"}`,
+              }}
+            />
+
+            <img
+              src={profileImageSrc}
+              alt="Profile picture"
+              className="absolute inset-2 rounded-full object-cover ring-1"
+              onError={(event) => {
+                if (event.currentTarget.src !== profilePicFallback) {
+                  setProfileImageSrc(profilePicFallback);
+                }
+              }}
+              style={{
+                ringColor: isKrishnaMode ? "hsl(185 72% 45% / 0.65)" : "hsl(43 96% 60% / 0.55)",
+              }}
+            />
+          </motion.div>
+
+          {/* Name */}
+          <div className="relative">
+            <motion.h1
+              initial={{ opacity: 0, letterSpacing: "0.5em" }}
+              animate={{ opacity: 1, letterSpacing: "0.08em" }}
+              transition={{ duration: 2.5, delay: 1.2, ease: "easeOut" }}
+              className="font-divine text-5xl md:text-7xl lg:text-8xl section-heading relative"
+            >
+              {cv.personal.name}
+            </motion.h1>
+          </div>
         </div>
 
         {/* Role */}
