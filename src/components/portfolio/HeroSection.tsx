@@ -23,24 +23,25 @@ export default function HeroSection({ isKrishnaMode = false }: HeroSectionProps)
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Parallax Background */}
-      <motion.div className="absolute inset-0 z-0" style={{ y }}>
-        <img
-          src={heroBg}
-          alt="Divine Temple"
-          className="w-full h-full object-cover object-center"
-          style={{ filter: "brightness(0.4) saturate(1.2)" }}
-        />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/60" />
-      </motion.div>
-
-      {/* Subtle decorative elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 text-gold/20 text-6xl font-sanskrit">ॐ</div>
-        <div className="absolute bottom-20 right-10 text-gold/20 text-4xl font-sanskrit">✦</div>
-      </div>
+      {/* Conditional Background: Dark mode temple, Light mode white with feathers */}
+      {isKrishnaMode ? (
+        /* Light Mode: Clean White Background Only */
+        <motion.div className="absolute inset-0 z-0 bg-white" style={{ y }}>
+        </motion.div>
+      ) : (
+        /* Dark Mode: Original Temple Background */
+        <motion.div className="absolute inset-0 z-0" style={{ y }}>
+          <img
+            src={heroBg}
+            alt="Divine Temple"
+            className="w-full h-full object-cover object-center"
+            style={{ filter: "brightness(0.4) saturate(1.2)" }}
+          />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/60" />
+        </motion.div>
+      )}
 
       {/* Main content */}
       <motion.div

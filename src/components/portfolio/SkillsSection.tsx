@@ -41,59 +41,62 @@ export default function SkillsSection({ isKrishnaMode = false }: SkillsSectionPr
           <div className="w-24 h-1 bg-gradient-to-r from-gold to-saffron mx-auto rounded-full mt-6"></div>
         </motion.div>
 
-        {/* Skills grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.map((skill, i) => (
+        {/* Creative Skills List */}
+        <div className="max-w-4xl mx-auto">
+          {categories.map((category, categoryIndex) => (
             <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, y: 30 }}
+              key={category}
+              initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="bg-card p-6 rounded-xl shadow-md border border-gold/10 hover:shadow-lg transition-all duration-300 hover:border-gold/20"
+              transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
+              className="mb-16"
             >
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-epic text-lg text-foreground">{skill.name}</h3>
-                <span className="font-epic text-sm text-gold/60">{skill.level}%</span>
+              {/* Category Header */}
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center">
+                  <span className="text-xl">
+                    {category === "Technical" ? "⚡" : category === "Data" ? "📊" : "🛠️"}
+                  </span>
+                </div>
+                <div>
+                  <h3 className="font-epic text-2xl text-foreground mb-1">{category}</h3>
+                  <p className="font-body text-muted-foreground text-sm">
+                    {category === "Technical" ? "Programming & development" :
+                     category === "Data" ? "Analysis & visualization" :
+                     "Frameworks & utilities"}
+                  </p>
+                </div>
               </div>
 
-              <div className="space-y-2">
-                <div className="h-2 bg-muted rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={inView ? { width: `${skill.level}%` } : {}}
-                    transition={{ duration: 1.5, delay: 0.3 + i * 0.1, ease: "easeOut" }}
-                    className="h-full bg-gradient-to-r from-gold to-saffron rounded-full"
-                  />
-                </div>
-                <p className="font-body text-muted-foreground text-sm">{skill.description}</p>
+              {/* Skills List */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {skills
+                  .filter(skill => skill.category === category)
+                  .map((skill, i) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.6, delay: categoryIndex * 0.2 + i * 0.1 }}
+                      className="group"
+                    >
+                      <div className="flex items-center gap-3 p-4 bg-card/50 rounded-lg border border-primary/10 hover:border-primary/20 hover:bg-card transition-all duration-300">
+                        <div className="w-2 h-2 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+                        <div className="flex-1">
+                          <span className="font-epic text-foreground group-hover:text-primary transition-colors duration-300">
+                            {skill.name}
+                          </span>
+                        </div>
+                        <div className="text-primary/60 text-sm font-sanskrit">
+                          {category === "Technical" ? "तेज" : category === "Data" ? "ज्ञान" : "उपकरण"}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Skill categories */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
-          {categories.map((category, i) => (
-            <div key={category} className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-gold/20 to-saffron/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">
-                  {category === "Technical" ? "⚡" : category === "Data" ? "📊" : "🛠️"}
-                </span>
-              </div>
-              <h3 className="font-epic text-lg mb-2">{category}</h3>
-              <p className="font-body text-muted-foreground text-sm">
-                {category === "Technical" ? "Programming & development" :
-                 category === "Data" ? "Analysis & visualization" :
-                 "Frameworks & utilities"}
-              </p>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

@@ -75,67 +75,72 @@
   }
 
   .light-divine {
-    /* Professional Light Mode — Premium UI System */
-    --background: 210 20% 98%;          /* #f8fafc - clean slate background */
-    --foreground: 222 84% 5%;          /* #0f172a - strong primary text */
+    /* Krishna Theme Light Mode — Pure Peacock Teal */
+    --background: 210 40% 98%;          /* Very light peacock background */
+    --foreground: 196 85% 14%;          /* Dark peacock teal text */
 
-    --card: 0 0% 100%;                 /* #ffffff - pure white surfaces */
-    --card-foreground: 222 84% 5%;     /* #0f172a - strong text on cards */
+    --card: 204 45% 96%;                /* Light peacock teal cards */
+    --card-foreground: 196 85% 14%;     /* Dark peacock teal text */
 
-    --popover: 0 0% 100%;              /* #ffffff - pure white popovers */
-    --popover-foreground: 222 84% 5%; /* #0f172a - strong text */
+    --popover: 204 45% 96%;             /* Light peacock teal popovers */
+    --popover-foreground: 196 85% 14%; /* Dark peacock teal text */
 
-    --primary: 43 96% 56%;             /* Keep divine gold for branding */
-    --primary-foreground: 0 0% 100%;   /* White text on gold */
+    --primary: 196 90% 26%;             /* Peacock teal primary */
+    --primary-foreground: 0 0% 100%;    /* White text on peacock */
 
-    --secondary: 214 32% 91%;          /* #e2e8f0 - subtle secondary */
-    --secondary-foreground: 222 84% 5%; /* #0f172a - strong text */
+    --secondary: 194 50% 50%;           /* Mid peacock teal secondary */
+    --secondary-foreground: 196 85% 14%; /* Dark peacock teal text */
 
-    --muted: 210 20% 96%;              /* Light muted background */
-    --muted-foreground: 215 28% 34%;   /* #475569 - secondary text */
+    --muted: 204 35% 94%;               /* Very light peacock muted */
+    --muted-foreground: 196 65% 35%;    /* Medium peacock teal text */
 
-    --accent: 43 96% 56%;              /* Keep divine gold */
-    --accent-foreground: 0 0% 100%;    /* White text */
+    --accent: 196 90% 26%;              /* Peacock teal accent */
+    --accent-foreground: 0 0% 100%;     /* White text */
 
     --destructive: 0 68% 40%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;             /* #e2e8f0 - professional borders */
-    --input: 0 0% 100%;                /* #ffffff - white inputs */
-    --ring: 43 96% 56%;                /* Gold focus rings */
+    --border: 196 55% 75%;              /* Light peacock teal borders */
+    --input: 204 45% 96%;               /* Light peacock teal inputs */
+    --ring: 196 90% 26%;                /* Peacock teal focus rings */
 
-    /* Custom divine tokens - enhanced for light mode */
-    --gold: 43 96% 56%;
-    --saffron: 28 100% 55%;
-    --maroon: 0 68% 25%;
-    --royal-blue: 225 68% 35%;
-    --peacock-teal: 196 90% 26%;
-    --peacock-mid: 194 50% 50%;
-    --peacock-deep: 196 90% 18%;
-    --peacock-green: 130 32% 20%;
-    --bansuri-gold: 43 90% 46%;
-    --feather-eye: 194 50% 53%;
+    /* Krishna theme tokens - pure peacock teal palette */
+    --gold: 196 90% 26%;                /* Peacock teal instead of gold */
+    --saffron: 194 50% 50%;             /* Mid peacock teal */
+    --maroon: 196 85% 18%;              /* Dark peacock teal */
+    --royal-blue: 196 90% 26%;          /* Peacock teal */
+    --peacock-teal: 196 90% 26%;        /* Pure peacock teal */
+    --peacock-mid: 194 50% 50%;         /* Mid peacock teal */
+    --peacock-deep: 196 85% 18%;        /* Deep peacock teal */
+    --peacock-green: 196 90% 26%;       /* Peacock teal */
+    --bansuri-gold: 194 50% 50%;        /* Mid peacock teal */
+    --feather-eye: 196 90% 26%;         /* Peacock teal */
 
-    /* Professional gradients for light mode */
-    --gradient-divine: linear-gradient(135deg, hsl(43 96% 56% / 0.08), hsl(28 100% 55% / 0.05), hsl(0 68% 35% / 0.03));
-    --gradient-cosmic: linear-gradient(180deg, hsl(210 20% 98%), hsl(210 20% 96%), hsl(210 20% 94%));
-    --gradient-gold: linear-gradient(135deg, hsl(43 96% 35%), hsl(43 96% 56%), hsl(43 96% 72%), hsl(43 96% 56%), hsl(43 96% 35%));
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(214 32% 91% / 0.3));
-    --gradient-fire: linear-gradient(180deg, hsl(43 90% 53%), hsl(28 100% 50%), hsl(0 68% 35%));
+    /* Krishna gradients - pure peacock theme */
+    --gradient-divine: linear-gradient(135deg, hsl(196 90% 26% / 0.15), hsl(194 50% 50% / 0.10), hsl(196 85% 18% / 0.08));
+    --gradient-cosmic: linear-gradient(180deg, hsl(210 40% 98%), hsl(204 45% 96%), hsl(204 35% 94%));
+    --gradient-gold: linear-gradient(135deg, hsl(196 90% 26%), hsl(194 50% 50%), hsl(196 85% 18%), hsl(194 50% 50%), hsl(196 90% 26%));
+    --gradient-card: linear-gradient(135deg, hsl(204 45% 96%), hsl(196 55% 75% / 0.3));
+    --gradient-fire: linear-gradient(180deg, hsl(196 90% 26%), hsl(194 50% 50%), hsl(196 85% 18%));
 
-    /* Professional shadows for light mode */
-    --shadow-divine: 0 1px 3px hsl(222 84% 5% / 0.12), 0 1px 2px hsl(222 84% 5% / 0.24);
-    --shadow-fire: 0 4px 6px hsl(222 84% 5% / 0.07), 0 1px 3px hsl(222 84% 5% / 0.1);
-    --shadow-glow: 0 0 0 3px hsl(43 96% 56% / 0.1);
+    /* Krishna shadows - subtle peacock teal */
+    --shadow-divine: 0 1px 3px hsl(196 85% 14% / 0.12), 0 1px 2px hsl(196 85% 14% / 0.24);
+    --shadow-fire: 0 4px 6px hsl(196 85% 14% / 0.07), 0 1px 3px hsl(196 85% 14% / 0.1);
+    --shadow-glow: 0 0 0 3px hsl(196 90% 26% / 0.1);
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222 84% 5%;
-    --sidebar-primary: 43 96% 56%;
+    --sidebar-background: 204 45% 96%;
+    --sidebar-foreground: 196 85% 14%;
+    --sidebar-primary: 196 90% 26%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 20% 96%;
-    --sidebar-accent-foreground: 222 84% 5%;
-    --sidebar-border: 214 32% 91%;
-    --sidebar-ring: 43 96% 56%;
+    --sidebar-accent: 204 35% 94%;
+    --sidebar-accent-foreground: 196 85% 14%;
+    --sidebar-border: 196 55% 75%;
+    --sidebar-ring: 196 90% 26%;
+  }
+
+  /* Light mode body background - pure white only */
+  .light-divine body {
+    background: white;
   }
 }
 
@@ -247,13 +252,13 @@
     background: var(--gradient-fire);
   }
 
-  /* Light/Krishna scroll-card shine - Professional Light Mode */
+  /* Krishna scroll-card - pure peacock theme */
   .light-divine .scroll-card {
-    background: hsl(0 0% 100%);
-    border: 1px solid hsl(214 32% 91%);
+    background: hsl(204 45% 96%);
+    border: 1px solid hsl(196 55% 75%);
     box-shadow:
-      0 1px 3px hsl(222 84% 5% / 0.12),
-      0 1px 2px hsl(222 84% 5% / 0.24);
+      0 1px 3px hsl(196 85% 14% / 0.12),
+      0 1px 2px hsl(196 85% 14% / 0.24);
   }
 
   .light-divine .scroll-card::before,
@@ -262,8 +267,8 @@
     background: linear-gradient(
       90deg,
       transparent,
-      hsl(43 96% 56% / 0.6),
-      hsl(43 96% 56% / 0.8),
+      hsl(196 90% 26% / 0.6),
+      hsl(196 90% 26% / 0.8),
       transparent
     );
     background-size: 200% 100%;
@@ -392,13 +397,13 @@
     transform: translateY(-3px) scale(1.03);
   }
 
-  /* Light/Krishna: Professional clean styling */
+  /* Krishna weapon-badge - pure peacock theme */
   .light-divine .weapon-badge {
-    background: hsl(0 0% 100%);
-    border: 1px solid hsl(214 32% 91%);
+    background: hsl(204 45% 96%);
+    border: 1px solid hsl(196 55% 75%);
     box-shadow:
-      0 2px 4px hsl(222 84% 5% / 0.06),
-      0 1px 2px hsl(222 84% 5% / 0.12);
+      0 2px 4px hsl(196 85% 14% / 0.06),
+      0 1px 2px hsl(196 85% 14% / 0.12);
   }
 
   .light-divine .weapon-badge::after {
@@ -443,11 +448,11 @@
   }
 
   .light-divine .glass-card {
-    background: hsl(0 0% 100% / 0.8);
-    border: 1px solid hsl(214 32% 91%);
+    background: hsl(204 45% 96% / 0.8);
+    border: 1px solid hsl(196 55% 75%);
     box-shadow:
-      0 4px 6px hsl(222 84% 5% / 0.07),
-      0 1px 3px hsl(222 84% 5% / 0.1);
+      0 4px 6px hsl(196 85% 14% / 0.07),
+      0 1px 3px hsl(196 85% 14% / 0.1);
   }
 
   .light-divine .glass-card::after {
