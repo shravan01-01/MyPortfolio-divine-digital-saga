@@ -22,31 +22,10 @@ export default function ContactSection({ isKrishnaMode = false }: ContactSection
   return (
     <section
       id="contact"
-      className="relative py-32 overflow-hidden texture-overlay"
-      style={isKrishnaMode ? { background: "hsl(0 0% 100%)" } : undefined}
+      className="relative py-24"
     >
-      {/* Divine light */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl"
-          style={{
-            opacity: isKrishnaMode ? 0.06 : 0.05,
-            background: isKrishnaMode
-              ? "radial-gradient(circle, hsl(196 90% 28%), hsl(194 50% 52%), transparent)"
-              : "radial-gradient(circle, hsl(43 96% 56%), hsl(0 68% 35%), transparent)"
-          }}
-        />
-      </div>
 
-      {/* Krishna: decorative teal bottom stripe */}
-      {isKrishnaMode && (
-        <div
-          className="absolute bottom-0 inset-x-0 h-1"
-          style={{ background: "linear-gradient(to right, transparent, hsl(196 90% 28% / 0.5), hsl(194 50% 52% / 0.7), hsl(196 90% 28% / 0.5), transparent)" }}
-        />
-      )}
-
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}

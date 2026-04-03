@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 
 const navItems = [
-  { label: "About", href: "#about", sanskrit: "परिचय" },
-  { label: "Skills", href: "#skills", sanskrit: "शस्त्र" },
-  { label: "Projects", href: "#projects", sanskrit: "कृति" },
-  { label: "Experience", href: "#experience", sanskrit: "अनुभव" },
-  { label: "Education", href: "#education", sanskrit: "शिक्षा" },
-  { label: "Contact", href: "#contact", sanskrit: "संपर्क" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Education", href: "#education" },
+  { label: "Contact", href: "#contact" },
 ];
 
 interface NavbarProps {
@@ -30,28 +30,29 @@ export default function Navbar({ isDayMode, onToggleMode }: NavbarProps) {
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, delay: 2.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      transition={{ duration: 0.8, delay: 0.5 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-md border-b border-gold/20 shadow-divine"
+          ? "bg-background/90 backdrop-blur-md border-b border-gold/20 shadow-lg"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="font-divine text-sm md:text-base text-gold-shimmer hover:scale-105 transition-transform">
-          <span className="font-sanskrit text-saffron mr-2">ॐ</span>
+        <a href="#hero" className="font-divine text-xl text-gold hover:text-saffron transition-colors">
           Portfolio
         </a>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="nav-divine group flex flex-col items-center">
-              <span className="font-sanskrit text-[10px] text-saffron/60 group-hover:text-saffron transition-colors">
-                {item.sanskrit}
-              </span>
-              <span>{item.label}</span>
+            <a
+              key={item.href}
+              href={item.href}
+              className="font-epic text-sm text-foreground hover:text-gold transition-colors relative group"
+            >
+              {item.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300"></span>
             </a>
           ))}
         </div>
@@ -61,26 +62,21 @@ export default function Navbar({ isDayMode, onToggleMode }: NavbarProps) {
           {/* Theme toggle */}
           <button
             onClick={onToggleMode}
-            className="relative w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center 
-                       hover:border-gold/70 hover:shadow-glow transition-all duration-300 hover:scale-110"
+            className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center hover:border-gold hover:bg-gold/10 transition-all duration-300"
+            aria-label="Toggle theme"
           >
-            <AnimatePresence mode="wait">
-              {isDayMode ? (
-                <motion.div key="sun" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
-                  <Sun className="w-4 h-4 text-saffron" />
-                </motion.div>
-              ) : (
-                <motion.div key="moon" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
-                  <Moon className="w-4 h-4 text-gold" />
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {isDayMode ? (
+              <Sun className="w-4 h-4 text-saffron" />
+            ) : (
+              <Moon className="w-4 h-4 text-gold" />
+            )}
           </button>
 
-          {/* Mobile menu */}
+          {/* Mobile menu button */}
           <button
-            className="md:hidden w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center"
+            className="md:hidden w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center hover:border-gold hover:bg-gold/10 transition-all duration-300"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-4 h-4 text-gold" /> : <Menu className="w-4 h-4 text-gold" />}
           </button>
@@ -88,30 +84,27 @@ export default function Navbar({ isDayMode, onToggleMode }: NavbarProps) {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden bg-background/95 backdrop-blur-md border-b border-gold/20"
-          >
-            <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="nav-divine flex items-center gap-3"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  <span className="font-sanskrit text-saffron">{item.sanskrit}</span>
-                  <span>{item.label}</span>
-                </a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {mobileOpen && (
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          className="md:hidden bg-background/95 backdrop-blur-md border-b border-gold/20"
+        >
+          <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="font-epic text-foreground hover:text-gold transition-colors py-2"
+                onClick={() => setMobileOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </motion.div>
+      )}
     </motion.nav>
   );
 }

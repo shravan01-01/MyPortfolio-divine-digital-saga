@@ -17,7 +17,7 @@ export default function Index() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2800);
+    const timer = setTimeout(() => setLoading(false), 1500); // Reduced from 2800ms
     return () => clearTimeout(timer);
   }, []);
 
@@ -34,39 +34,27 @@ export default function Index() {
         {loading && (
           <motion.div
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center"
-            style={{ background: "hsl(0 0% 3%)" }}
+            transition={{ duration: 0.5 }}
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background"
           >
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.5 }}
               className="text-center"
             >
-              <div className="font-sanskrit text-7xl text-gold animate-divine-pulse mb-6">ॐ</div>
-              <div className="font-divine text-gold/60 text-sm tracking-[0.4em] uppercase">
-                Loading the Universe...
+              <div className="font-sanskrit text-6xl text-gold mb-6">ॐ</div>
+              <div className="font-epic text-gold/60 text-sm tracking-widest uppercase">
+                Loading...
               </div>
-              {/* Loading bar */}
-              <div className="mt-8 w-48 h-px bg-gold/20 mx-auto overflow-hidden rounded-full">
+              <div className="mt-8 w-32 h-1 bg-gold/20 mx-auto overflow-hidden rounded-full">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
-                  transition={{ duration: 2.2, ease: "easeInOut" }}
-                  className="h-full rounded-full"
-                  style={{ background: "linear-gradient(90deg, hsl(43 96% 56%), hsl(28 100% 55%))" }}
+                  transition={{ duration: 1.2, ease: "easeInOut" }}
+                  className="h-full bg-gradient-to-r from-gold to-saffron rounded-full"
                 />
               </div>
-              {/* Sanskrit verses */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="font-sanskrit text-saffron/40 text-xs mt-4"
-              >
-                सर्वे भवन्तु सुखिनः
-              </motion.p>
             </motion.div>
           </motion.div>
         )}
@@ -83,18 +71,6 @@ export default function Index() {
             <Navbar isDayMode={isDayMode} onToggleMode={() => setIsDayMode(!isDayMode)} />
 
             <main className="relative">
-              {/* Subtle repeating Sanskrit border decorations */}
-              <div className="fixed left-4 top-1/2 -translate-y-1/2 z-[5] hidden xl:flex flex-col gap-6 pointer-events-none">
-                {["ॐ", "✦", "☸", "✦", "ॐ"].map((s, i) => (
-                  <span key={i} className="font-sanskrit text-gold/10 text-xs">{s}</span>
-                ))}
-              </div>
-              <div className="fixed right-4 top-1/2 -translate-y-1/2 z-[5] hidden xl:flex flex-col gap-6 pointer-events-none">
-                {["ॐ", "✦", "☸", "✦", "ॐ"].map((s, i) => (
-                  <span key={i} className="font-sanskrit text-gold/10 text-xs">{s}</span>
-                ))}
-              </div>
-
               <HeroSection isKrishnaMode={isDayMode} />
               <AboutSection isKrishnaMode={isDayMode} />
               <SkillsSection isKrishnaMode={isDayMode} />

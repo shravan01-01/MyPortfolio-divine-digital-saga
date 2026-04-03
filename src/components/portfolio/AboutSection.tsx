@@ -20,43 +20,20 @@ export default function AboutSection({ isKrishnaMode = false }: AboutSectionProp
   return (
     <section
       id="about"
-      className="relative py-32 overflow-hidden texture-overlay"
-      style={isKrishnaMode ? { background: "hsl(0 0% 100%)" } : undefined}
+      className="relative py-24"
     >
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-[0.07] pointer-events-none">
-        <div
-          className="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl"
-          style={{ background: isKrishnaMode ? "hsl(196 90% 28%)" : "hsl(43 96% 56%)" }}
-        />
-        <div
-          className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl"
-          style={{ background: isKrishnaMode ? "hsl(130 32% 22%)" : "hsl(0 68% 35%)" }}
-        />
-      </div>
-
-      {/* Krishna: subtle peacock teal top stripe */}
-      {isKrishnaMode && (
-        <div
-          className="absolute top-0 inset-x-0 h-1"
-          style={{ background: "linear-gradient(to right, transparent, hsl(196 90% 28% / 0.5), hsl(194 50% 52% / 0.7), hsl(196 90% 28% / 0.5), transparent)" }}
-        />
-      )}
-
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
         {/* Section header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <p className="font-sanskrit text-saffron/70 text-sm tracking-[0.3em] mb-3">मेरी यात्रा</p>
-          <h2 className="section-heading font-divine text-4xl md:text-5xl mb-4">My Journey</h2>
-          <div className="divider-ornate max-w-xs mx-auto">
-            <span className="font-sanskrit text-gold/60 text-xl">✦</span>
-          </div>
+          <p className="font-sanskrit text-gold/70 text-sm tracking-wider mb-3">मेरी यात्रा</p>
+          <h2 className="font-divine text-4xl md:text-5xl mb-4">My Journey</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-gold to-saffron mx-auto rounded-full"></div>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -66,20 +43,8 @@ export default function AboutSection({ isKrishnaMode = false }: AboutSectionProp
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.2 }}
           >
-            <div className="scroll-card p-8 md:p-10 relative">
-              {/* Decorative corner */}
-              <div className="absolute top-4 left-4 w-8 h-8 opacity-40">
-                <svg viewBox="0 0 32 32" fill="none">
-                  <path d="M0 0 L12 0 L12 1 L1 1 L1 12 L0 12 Z" fill="hsl(43 96% 56%)" />
-                </svg>
-              </div>
-              <div className="absolute bottom-4 right-4 w-8 h-8 opacity-40 rotate-180">
-                <svg viewBox="0 0 32 32" fill="none">
-                  <path d="M0 0 L12 0 L12 1 L1 1 L1 12 L0 12 Z" fill="hsl(43 96% 56%)" />
-                </svg>
-              </div>
-
-              <p className="font-sanskrit text-saffron/80 text-lg mb-4">यत्र योगेश्वरः कृष्णः</p>
+            <div className="bg-card p-8 md:p-10 rounded-xl shadow-lg border border-gold/10">
+              <p className="font-sanskrit text-gold/80 text-lg mb-4">यत्र योगेश्वरः कृष्णः</p>
               <h3 className="font-epic text-gold text-2xl mb-6">The Student-Developer</h3>
               <p className="font-body text-muted-foreground text-lg leading-relaxed mb-4">
                 {cv.personal.summary}
@@ -94,10 +59,10 @@ export default function AboutSection({ isKrishnaMode = false }: AboutSectionProp
                   { num: "2", label: "Years", sanskrit: "वर्ष" },
                   { num: "100%", label: "Passion", sanskrit: "जुनून" },
                 ].map((stat) => (
-                  <div key={stat.label} className="text-center border-divine rounded p-3">
+                  <div key={stat.label} className="text-center p-4 bg-muted/50 rounded-lg">
                     <div className="font-divine text-gold text-2xl">{stat.num}</div>
-                    <div className="font-sanskrit text-saffron/60 text-xs">{stat.sanskrit}</div>
-                    <div className="font-epic text-muted-foreground text-xs tracking-widest uppercase">{stat.label}</div>
+                    <div className="font-sanskrit text-gold/60 text-xs">{stat.sanskrit}</div>
+                    <div className="font-epic text-muted-foreground text-xs tracking-wider uppercase">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -107,12 +72,7 @@ export default function AboutSection({ isKrishnaMode = false }: AboutSectionProp
           {/* Right — Timeline */}
           <div className="relative">
             {/* Timeline line */}
-            <div
-              className="absolute left-6 top-0 bottom-0 w-px"
-              style={{ background: isKrishnaMode
-                ? "linear-gradient(to bottom, transparent, hsl(196 90% 28% / 0.6), transparent)"
-                : "linear-gradient(to bottom, transparent, hsl(43 96% 56% / 0.5), transparent)" }}
-            />
+            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gold via-saffron to-gold"></div>
 
             {journey.map((item, i) => (
               <motion.div
@@ -120,18 +80,17 @@ export default function AboutSection({ isKrishnaMode = false }: AboutSectionProp
                 initial={{ opacity: 0, x: 40 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.3 + i * 0.15 }}
-                className="relative pl-16 pb-10 group"
+                className="relative pl-16 pb-8"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 top-1 w-12 h-12 rounded-full border border-gold/50 flex items-center justify-center
-                               text-xl bg-card group-hover:border-gold group-hover:shadow-glow transition-all duration-300">
+                <div className="absolute left-0 top-2 w-12 h-12 rounded-full border-2 border-gold bg-card flex items-center justify-center text-xl shadow-lg">
                   {item.icon}
                 </div>
 
-                <div className="glass-card p-5 hover-fire rounded">
+                <div className="bg-card p-6 rounded-xl shadow-md border border-gold/10 hover:shadow-lg transition-shadow">
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="font-epic text-gold/60 text-xs tracking-widest">{item.year}</span>
-                    <span className="font-sanskrit text-saffron/60 text-xs">{item.subtitle}</span>
+                    <span className="font-epic text-gold/60 text-sm tracking-wider">{item.year}</span>
+                    <span className="font-sanskrit text-gold/60 text-sm">{item.subtitle}</span>
                   </div>
                   <h4 className="font-epic text-gold text-lg mb-2">{item.title}</h4>
                   <p className="font-body text-muted-foreground leading-relaxed">{item.desc}</p>

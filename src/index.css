@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap');
 
+/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
 
 /* ════════════════════════════════════════════════
    DIVINE DESIGN SYSTEM — Mahabharata & Ramayana
@@ -137,7 +139,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   html {
@@ -145,7 +147,8 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-family: 'Crimson Text', serif;
     overflow-x: hidden;
     cursor: none;
@@ -194,7 +197,7 @@
 
   /* Fire border on hover */
   .hover-fire {
-    @apply transition-all duration-300;
+    transition: all 0.3s ease-out;
   }
   .hover-fire:hover {
     border-color: hsl(var(--saffron) / 0.8) !important;

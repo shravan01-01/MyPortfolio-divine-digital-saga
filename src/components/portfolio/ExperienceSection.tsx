@@ -24,20 +24,10 @@ export default function ExperienceSection({ isKrishnaMode = false }: ExperienceS
   return (
     <section
       id="experience"
-      className="relative py-32 overflow-hidden"
-      style={isKrishnaMode ? {
-        background: "linear-gradient(180deg, hsl(196 40% 96%), hsl(0 0% 100%) 60%, hsl(196 60% 97%))"
-      } : undefined}
+      className="relative py-24 bg-muted/10"
     >
-      <div className="absolute inset-0 opacity-[0.05]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: isKrishnaMode
-            ? "repeating-linear-gradient(0deg, transparent, transparent 80px, hsl(196 90% 28% / 0.25) 80px, hsl(196 90% 28% / 0.25) 81px)"
-            : "repeating-linear-gradient(0deg, transparent, transparent 80px, hsl(43 96% 56% / 0.3) 80px, hsl(43 96% 56% / 0.3) 81px)"
-        }} />
-      </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
