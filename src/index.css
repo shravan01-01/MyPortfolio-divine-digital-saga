@@ -75,65 +75,67 @@
   }
 
   .light-divine {
-    /* Day: Krishna — refined, higher contrast, softer light glow */
-    --background: 208 22% 96%;          /* off-white ivory for comfort */
-    --foreground: 196 85% 14%;          /* deep peacock teal text */
+    /* Professional Light Mode — Premium UI System */
+    --background: 210 20% 98%;          /* #f8fafc - clean slate background */
+    --foreground: 222 84% 5%;          /* #0f172a - strong primary text */
 
-    --card: 204 40% 93%;                /* gentle teal tint */
-    --card-foreground: 196 85% 16%; 
+    --card: 0 0% 100%;                 /* #ffffff - pure white surfaces */
+    --card-foreground: 222 84% 5%;     /* #0f172a - strong text on cards */
 
-    --popover: 204 38% 92%;
-    --popover-foreground: 196 85% 16%;
+    --popover: 0 0% 100%;              /* #ffffff - pure white popovers */
+    --popover-foreground: 222 84% 5%; /* #0f172a - strong text */
 
-    --primary: 196 90% 26%;             /* slightly darker peacock teal */
-    --primary-foreground: 0 0% 100%; 
+    --primary: 43 96% 56%;             /* Keep divine gold for branding */
+    --primary-foreground: 0 0% 100%;   /* White text on gold */
 
-    --secondary: 43 90% 46%;            /* warmer soft gold */
-    --secondary-foreground: 196 85% 14%;
+    --secondary: 214 32% 91%;          /* #e2e8f0 - subtle secondary */
+    --secondary-foreground: 222 84% 5%; /* #0f172a - strong text */
 
-    --muted: 193 40% 92%;               /* pale teal wash */
-    --muted-foreground: 196 45% 36%; 
+    --muted: 210 20% 96%;              /* Light muted background */
+    --muted-foreground: 215 28% 34%;   /* #475569 - secondary text */
 
-    --accent: 130 32% 20%;              /* richer forest green */
-    --accent-foreground: 0 0% 100%; 
+    --accent: 43 96% 56%;              /* Keep divine gold */
+    --accent-foreground: 0 0% 100%;    /* White text */
 
     --destructive: 0 68% 40%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 196 55% 70%;
-    --input: 203 38% 90%;
-    --ring: 196 90% 26%;
+    --border: 214 32% 91%;             /* #e2e8f0 - professional borders */
+    --input: 0 0% 100%;                /* #ffffff - white inputs */
+    --ring: 43 96% 56%;                /* Gold focus rings */
 
-    /* Custom divine tokens */
-    --gold: 43 90% 46%;
-    --saffron: 196 90% 30%;
-    --maroon: 0 55% 30%;
-    --royal-blue: 196 90% 26%;
+    /* Custom divine tokens - enhanced for light mode */
+    --gold: 43 96% 56%;
+    --saffron: 28 100% 55%;
+    --maroon: 0 68% 25%;
+    --royal-blue: 225 68% 35%;
     --peacock-teal: 196 90% 26%;
-    --peacock-mid: 194 50% 50%; 
+    --peacock-mid: 194 50% 50%;
     --peacock-deep: 196 90% 18%;
     --peacock-green: 130 32% 20%;
     --bansuri-gold: 43 90% 46%;
     --feather-eye: 194 50% 53%;
 
-    --gradient-divine: linear-gradient(135deg, hsl(196 90% 26% / 0.2), hsl(194 50% 50% / 0.14), hsl(43 90% 46% / 0.10));
-    --gradient-cosmic: linear-gradient(180deg, hsl(0 0% 100%), hsl(204 38% 92%), hsl(193 40% 92%));
-    --gradient-gold: linear-gradient(135deg, hsl(43 90% 34%), hsl(43 90% 46%), hsl(43 90% 62%), hsl(43 90% 46%), hsl(43 90% 34%));
-    --gradient-card: linear-gradient(135deg, hsl(204 40% 98% / 0.98), hsl(196 90% 26% / 0.18), hsl(43 96% 56% / 0.10));
-    --gradient-fire: linear-gradient(180deg, hsl(43 90% 53%), hsl(196 90% 30%), hsl(130 32% 26%));
+    /* Professional gradients for light mode */
+    --gradient-divine: linear-gradient(135deg, hsl(43 96% 56% / 0.08), hsl(28 100% 55% / 0.05), hsl(0 68% 35% / 0.03));
+    --gradient-cosmic: linear-gradient(180deg, hsl(210 20% 98%), hsl(210 20% 96%), hsl(210 20% 94%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 96% 35%), hsl(43 96% 56%), hsl(43 96% 72%), hsl(43 96% 56%), hsl(43 96% 35%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(214 32% 91% / 0.3));
+    --gradient-fire: linear-gradient(180deg, hsl(43 90% 53%), hsl(28 100% 50%), hsl(0 68% 35%));
 
-    --shadow-divine: 0 4px 30px hsl(196 90% 26% / 0.25), 0 1px 8px hsl(196 90% 26% / 0.14);
-    --shadow-fire: 0 4px 25px hsl(194 50% 50% / 0.35), 0 1px 7px hsl(43 90% 46% / 0.18);
-    --shadow-glow: 0 0 24px hsl(196 90% 26% / 0.4);
+    /* Professional shadows for light mode */
+    --shadow-divine: 0 1px 3px hsl(222 84% 5% / 0.12), 0 1px 2px hsl(222 84% 5% / 0.24);
+    --shadow-fire: 0 4px 6px hsl(222 84% 5% / 0.07), 0 1px 3px hsl(222 84% 5% / 0.1);
+    --shadow-glow: 0 0 0 3px hsl(43 96% 56% / 0.1);
 
-    --sidebar-background: 203 38% 91%;
-    --sidebar-foreground: 196 90% 14%;
-    --sidebar-primary: 196 90% 26%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 84% 5%;
+    --sidebar-primary: 43 96% 56%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 193 40% 92%;
-    --sidebar-accent-foreground: 196 90% 14%;
-    --sidebar-border: 196 55% 70%;
-    --sidebar-ring: 196 90% 26%;
+    --sidebar-accent: 210 20% 96%;
+    --sidebar-accent-foreground: 222 84% 5%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 43 96% 56%;
   }
 }
 
@@ -245,32 +247,28 @@
     background: var(--gradient-fire);
   }
 
-  /* Light/Krishna scroll-card shine */
+  /* Light/Krishna scroll-card shine - Professional Light Mode */
   .light-divine .scroll-card {
-    border-color: hsl(var(--peacock-teal) / 0.28);
-    background:
-      radial-gradient(circle at 10% 0%, hsl(var(--peacock-teal) / 0.22), transparent 48%),
-      radial-gradient(circle at 90% 100%, hsl(var(--bansuri-gold) / 0.18), transparent 52%),
-      radial-gradient(circle at 75% 10%, hsl(var(--peacock-mid) / 0.14), transparent 55%),
-      var(--gradient-card);
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(214 32% 91%);
     box-shadow:
-      0 18px 55px hsl(var(--peacock-teal) / 0.10),
-      0 0 0 1px hsl(var(--gold) / 0.14);
+      0 1px 3px hsl(222 84% 5% / 0.12),
+      0 1px 2px hsl(222 84% 5% / 0.24);
   }
 
   .light-divine .scroll-card::before,
   .light-divine .scroll-card::after {
-    height: 4px;
+    height: 3px;
     background: linear-gradient(
       90deg,
       transparent,
-      hsl(var(--peacock-teal) / 0.85),
-      hsl(var(--bansuri-gold) / 0.65),
+      hsl(43 96% 56% / 0.6),
+      hsl(43 96% 56% / 0.8),
       transparent
     );
-    background-size: 220% 100%;
-    opacity: 0.95;
-    animation: krishna-line-sweep 2.8s ease-in-out infinite;
+    background-size: 200% 100%;
+    opacity: 0.8;
+    animation: krishna-line-sweep 3s ease-in-out infinite;
   }
 
   /* Section divider - ornamental */
@@ -394,21 +392,18 @@
     transform: translateY(-3px) scale(1.03);
   }
 
-  /* Light/Krishna: feather-like shimmer */
+  /* Light/Krishna: Professional clean styling */
   .light-divine .weapon-badge {
-    background:
-      radial-gradient(circle at 12% 8%, hsl(var(--peacock-teal) / 0.25), transparent 46%),
-      radial-gradient(circle at 88% 92%, hsl(var(--bansuri-gold) / 0.18), transparent 55%),
-      linear-gradient(135deg, hsl(var(--card) / 0.95), hsl(var(--peacock-teal) / 0.10));
-    border-color: hsl(var(--peacock-teal) / 0.32);
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(214 32% 91%);
     box-shadow:
-      0 22px 60px hsl(var(--peacock-teal) / 0.10),
-      0 0 0 1px hsl(var(--gold) / 0.14);
+      0 2px 4px hsl(222 84% 5% / 0.06),
+      0 1px 2px hsl(222 84% 5% / 0.12);
   }
 
   .light-divine .weapon-badge::after {
-    opacity: 0.75;
-    animation: krishna-card-sheen 3.2s ease-in-out infinite;
+    opacity: 0.5;
+    animation: krishna-card-sheen 4s ease-in-out infinite;
   }
 
   /* Chakra spin */
@@ -448,17 +443,16 @@
   }
 
   .light-divine .glass-card {
-    border-color: hsl(var(--peacock-teal) / 0.25);
-    background:
-      radial-gradient(circle at 12% 0%, hsl(var(--peacock-teal) / 0.20), transparent 46%),
-      radial-gradient(circle at 90% 100%, hsl(var(--bansuri-gold) / 0.16), transparent 52%),
-      hsl(var(--card) / 0.62);
-    box-shadow: 0 18px 55px hsl(var(--peacock-teal) / 0.08);
+    background: hsl(0 0% 100% / 0.8);
+    border: 1px solid hsl(214 32% 91%);
+    box-shadow:
+      0 4px 6px hsl(222 84% 5% / 0.07),
+      0 1px 3px hsl(222 84% 5% / 0.1);
   }
 
   .light-divine .glass-card::after {
-    opacity: 0.9;
-    animation: krishna-feather-float 6.5s ease-in-out infinite;
+    opacity: 0.6;
+    animation: krishna-feather-float 8s ease-in-out infinite;
   }
 }
 
