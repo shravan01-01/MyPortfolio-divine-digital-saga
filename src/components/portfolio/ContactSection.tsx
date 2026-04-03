@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Send, Mail, MapPin, Phone } from "lucide-react";
+import { Send, Mail, MapPin, Phone, Github, Linkedin, Code2 } from "lucide-react";
 import { cv } from "@/data/cv";
 
 interface ContactSectionProps {
@@ -82,8 +82,9 @@ export default function ContactSection({ isKrishnaMode = false }: ContactSection
               <p className="font-epic text-xs text-muted-foreground tracking-widest uppercase mb-4">Social Presence</p>
               <div className="flex gap-3">
                 {[
-                  { label: "LinkedIn", url: cv.personal.linkedin },
-                  { label: "LeetCode", url: cv.personal.leetcode },
+                  { label: "GitHub", url: cv.personal.github, Icon: Github },
+                  { label: "LinkedIn", url: cv.personal.linkedin, Icon: Linkedin },
+                  { label: "LeetCode", url: cv.personal.leetcode, Icon: Code2 },
                 ].map((item) => (
                   <a
                     key={item.label}
@@ -91,10 +92,10 @@ export default function ContactSection({ isKrishnaMode = false }: ContactSection
                     target="_blank"
                     rel="noreferrer"
                     className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center 
-                               text-xs font-epic text-gold/60 hover:text-gold hover:border-gold hover:shadow-glow 
-                               transition-all duration-300"
+                               hover:border-gold hover:shadow-glow transition-all duration-300"
+                    title={item.label}
                   >
-                    {item.label.slice(0, 2).toUpperCase()}
+                    <item.Icon className="w-4 h-4 text-gold" />
                   </a>
                 ))}
               </div>

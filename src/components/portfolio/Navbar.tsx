@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, Github, Linkedin, Code2 } from "lucide-react";
+import { cv } from "@/data/cv";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -58,7 +59,38 @@ export default function Navbar({ isDayMode, onToggleMode }: NavbarProps) {
         </div>
 
         {/* Right side */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          {/* Social Icons - Desktop */}
+          <div className="hidden sm:flex items-center gap-2">
+            <a
+              href={cv.personal.github}
+              target="_blank"
+              rel="noreferrer"
+              className="w-9 h-9 rounded-full border border-gold/30 flex items-center justify-center hover:border-gold hover:bg-gold/10 transition-all duration-300"
+              aria-label="GitHub"
+            >
+              <Github className="w-4 h-4 text-gold" />
+            </a>
+            <a
+              href={cv.personal.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="w-9 h-9 rounded-full border border-gold/30 flex items-center justify-center hover:border-gold hover:bg-gold/10 transition-all duration-300"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-4 h-4 text-gold" />
+            </a>
+            <a
+              href={cv.personal.leetcode}
+              target="_blank"
+              rel="noreferrer"
+              className="w-9 h-9 rounded-full border border-gold/30 flex items-center justify-center hover:border-gold hover:bg-gold/10 transition-all duration-300"
+              aria-label="LeetCode"
+            >
+              <Code2 className="w-4 h-4 text-gold" />
+            </a>
+          </div>
+
           {/* Theme toggle */}
           <button
             onClick={onToggleMode}

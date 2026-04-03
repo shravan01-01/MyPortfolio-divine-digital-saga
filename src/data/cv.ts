@@ -2,10 +2,11 @@ export const cv = {
   personal: {
     name: "Shravan Sadawarte",
     title: "AI Engineer | Full Stack Developer | Building Intelligent Systems",
-    location: "Ajeenkya D Y Patil School of Engineering, Pune",
+    location: "Pune, Maharashtra, India",
     email: "shriramsadawarti@gmail.com",
     phone: "+91 9322293463",
     linkedin: "https://www.linkedin.com/in/shravansadawarte/",
+    github: "https://github.com/shravan01-01",
     leetcode: "https://leetcode.com/u/shravan-1/",
     summary:
       "I am a results-driven AI & Data Science student specializing in building intelligent, scalable systems. From developing custom AI models and RAG-based platforms to deploying full-stack applications, I focus on solving real-world problems using technology.",
@@ -44,8 +45,8 @@ export const cv = {
     "Git",
     "GitHub",
     "VS Code",
-    "Node.js",
     "GitHub Pages",
+    "Node.js",
   ],
   experience: [
     {
@@ -71,6 +72,17 @@ export const cv = {
       github: "https://github.com/shravan01-01/Routo-AI",
     },
     {
+      title: "e-Swasthya – Digital Health Record Management System",
+      description: "A nationwide Digital Health Record Management System connecting healthcare providers and patients with seamless health data sharing.",
+      features: [
+        "Digital Health Records",
+        "Provider Integration",
+        "Real-time Data Sharing",
+      ],
+      tech: ["React", "Node.js", "MongoDB", "Healthcare"],
+      github: "https://github.com/shravan01-01/e-Swasthya",
+    },
+    {
       title: "Hot-Stay – Hotel Booking Platform",
       description: "A full-stack hotel booking application inspired by Airbnb.",
       features: [
@@ -94,6 +106,17 @@ export const cv = {
       github: "https://github.com/shravan01-01/JanSeva",
     },
     {
+      title: "MY-3D – 3D Aviation Showcase Platform",
+      description: "An interactive 3D aviation and aerospace showcase platform with immersive 3D models and visualizations.",
+      features: [
+        "3D Model Visualization",
+        "Interactive Controls",
+        "Real-time Rendering",
+      ],
+      tech: ["React", "Three.js", "WebGL"],
+      github: "https://github.com/shravan01-01/MY-3D",
+    },
+    {
       title: "Student Phone Detection System",
       description: "AI system to detect students using phones in classrooms.",
       features: [
@@ -103,6 +126,18 @@ export const cv = {
         "Excel Logging",
       ],
       tech: ["Python", "OpenCV", "YOLO"],
+    },
+    {
+      title: "Rail.Sanchalak – Train Scheduling Decision Support System",
+      description: "An intelligent decision support system for optimized train scheduling and route planning with real-time analytics.",
+      features: [
+        "Schedule Optimization",
+        "Route Planning",
+        "Real-time Analytics",
+        "Conflict Resolution",
+      ],
+      tech: ["Python", "Data Analytics", "Decision Support"],
+      github: "https://github.com/shravan01-01/Rail.Sanchalak",
     },
     {
       title: "AI Drone Crop Disease Detection",
