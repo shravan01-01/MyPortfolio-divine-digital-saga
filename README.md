@@ -22,7 +22,7 @@ This repository represents my personal portfolio showcasing:
 - Data-driven solutions  
 
 🔗 **Live Portfolio:**  
-👉 https://your-vercel-link.vercel.app  
+👉 https://shravan-sadawarte-portfolio.vercel.app/ 
 
 ---
 
